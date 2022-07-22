@@ -1,0 +1,103 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GenerationMap : MonoBehaviour
+{
+    [SerializeField] private bool _isRandom;
+    [SerializeField] private Material _mat;
+    public enum DrawMode { NoiseMap, ColourMap, Mesh };
+    public DrawMode drawMode;
+    [SerializeField] private int _xSize;
+    [SerializeField] private int _zSize;
+    public const int mapChunkSize = 241;
+    [Range(0, 6)]
+    public int levelOfDetail;
+    public float noiseScale;
+
+    public int octaves;
+    [Range(0, 1)]
+    public float persistance;
+    public float lacunarity;
+
+    [field: SerializeField] public int Seed { get; private set; }
+    public Vector2 offset;
+
+    public float meshHeightMultiplier;
+    public AnimationCurve meshHeightCurve;
+
+    public bool autoUpdate;
+
+    public TerrainType[] regions;
+    private void Start()
+    {
+        SetGeneration();
+        RandomGenerated();
+        GenerateMap();
+    }
+    public void GenerateMap()
+    {
+        float[,] noiseMap = Noise.GenerateNoiseMap(_xSize, _zSize, Seed, noiseScale, octaves, persistance, lacunarity, offset);
+
+        Color[] colourMap = new Color[_xSize * _zSize];
+        for (int y = 0; y < _zSize; y++)
+        {
+            for (int x = 0; x < _xSize; x++)
+            {
+                float currentHeight = noiseMap[x, y];
+                for (int i = 0; i < regions.Length; i++)
+                {
+                    if (currentHeight <= regions[i].height)
+                    {
+                        colourMap[y * _xSize + x] = regions[i].colour;
+                        break;
+                    }
+                }
+            }
+        }
+
+        MapDisplay display = FindObjectOfType<MapDisplay>();
+        if (drawMode == DrawMode.NoiseMap)
+        {
+            display.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
+        }
+        else if (drawMode == DrawMode.ColourMap)
+        {
+            display.DrawTexture(TextureGenerator.TextureFromColourMap(colourMap, mapChunkSize, mapChunkSize));
+        }
+        else if (drawMode == DrawMode.Mesh)
+        {
+            var y = Mathf.RoundToInt(1 * _zSize * 1 * .05f);
+            _mat.mainTextureScale = new Vector2(_mat.mainTextureScale.x, y);
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail), _mat);
+        }
+    }
+
+    void OnValidate()
+    {
+        if (lacunarity < 1)
+        {
+            lacunarity = 1;
+        }
+        if (octaves < 0)
+        {
+            octaves = 0;
+        }
+    }
+
+    private void RandomGenerated()
+    {
+        if (_isRandom)
+        {
+            Seed = Random.Range(0, 10000);
+            offset = new Vector2(Random.Range(0, 10000), (Random.Range(0, 10000)));
+        }
+    }
+
+    private void SetGeneration()
+    {
+        var load = GameManager.instance.LoadData();
+        _isRandom = load.Item1;
+        Seed = load.Item2;
+    }
+}
