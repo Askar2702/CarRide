@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private RectTransform _panel;
     [SerializeField] private RectTransform _UpPos;
     [SerializeField] private RectTransform _centerPos;
+    [SerializeField] private GameObject _iconPause;
+    [SerializeField] private GameObject _iconPlay;
     #endregion
     #region UI Button
     [SerializeField] private Button _start;
@@ -64,10 +66,15 @@ public class UiManager : MonoBehaviour
             _start.gameObject.SetActive(false);
             _nextGame.gameObject.SetActive(false);
             _restart.gameObject.SetActive(true);
+            _iconPause.SetActive(false);
+            _iconPlay.SetActive(true);
+            _exit.gameObject.SetActive(true);
         }
         else if (_panel.anchoredPosition != _UpPos.anchoredPosition)
         {
             SetPosPanel(_UpPos);
+            _iconPause.SetActive(true);
+            _iconPlay.SetActive(false);
         }
     }
 
@@ -77,6 +84,7 @@ public class UiManager : MonoBehaviour
         _start.gameObject.SetActive(false);
         _nextGame.gameObject.SetActive(true);
         _restart.gameObject.SetActive(false);
+        _exit.gameObject.SetActive(true);
     }
 
 

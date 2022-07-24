@@ -14,6 +14,9 @@ public class RearWheelDrive : MonoBehaviour
     private WheelCollider[] wheels;
     private CarController _carController;
 
+    float _angle = 0;
+    float _torque = 0;
+
     // here we find all the WheelColliders down in the hierarchy
     public void Start()
     {
@@ -43,39 +46,42 @@ public class RearWheelDrive : MonoBehaviour
     // this helps us to figure our which wheels are front ones and which are rear
     public void Update()
     {
-        float angle = 0;
-        float torque = 0;
         if (GameManager.instance.GameState == GameState.Play)
         {
             if (!isMobileInput)
             {
-                angle = maxAngle * Input.GetAxis("Horizontal");
-                torque = maxTorque * Input.GetAxis("Vertical");
+                _angle = maxAngle * Input.GetAxis("Horizontal");
+                _torque = maxTorque * Input.GetAxis("Vertical");
             }
             else
             {
-                angle = maxAngle * _carController.Horizontal;
-                torque = maxTorque * _carController.Vertical;
+                _angle = maxAngle * _carController.Horizontal;
+                _torque = maxTorque * _carController.Vertical;
             }
         }
         else if (GameManager.instance.GameState == GameState.Finish)
         {
-            angle = maxAngle * 1;
-            torque = maxTorque * 0;
+            _angle = maxAngle * 1;
+            _torque = maxTorque * 0;
         }
 
 
+
+    }
+
+    private void FixedUpdate()
+    {
         foreach (WheelCollider wheel in wheels)
         {
             // a simple car where front wheels steer while rear ones drive
             if (wheel.transform.localPosition.z > 0)
-                wheel.steerAngle = angle;
+                wheel.steerAngle = _angle;
 
-            if (fourWheelDrive) wheel.motorTorque = torque;
+            if (fourWheelDrive) wheel.motorTorque = _torque;
             else
             {
                 if (wheel.transform.localPosition.z < 0)
-                    wheel.motorTorque = torque;
+                    wheel.motorTorque = _torque;
             }
 
             // update visual wheels if any
@@ -91,6 +97,11 @@ public class RearWheelDrive : MonoBehaviour
                 shapeTransform.rotation = q;
             }
 
+        }
+
+        foreach (WheelCollider wheel in wheels)
+        {
+            wheel.brakeTorque = _carController.CurrentBreakForse;
         }
     }
 }

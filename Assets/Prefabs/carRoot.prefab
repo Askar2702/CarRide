@@ -54,13 +54,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &7576874053082451536
 GameObject:
@@ -150,7 +150,7 @@ MonoBehaviour:
   fourWheelDrive: 1
   isMobileInput: 1
   maxAngle: 30
-  maxTorque: 1000
+  maxTorque: 1500
   wheelShape: {fileID: 6260388483884636, guid: 6e5dc9ab05e77c74cb6d284b0462ea3b, type: 3}
 --- !u!114 &7576874053082451547
 MonoBehaviour:
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Horizontal>k__BackingField: 0
   <Vertical>k__BackingField: 0
+  _lights: []
 --- !u!1 &7576874053619603454
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,13 +314,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &7576874054183582241
 GameObject:

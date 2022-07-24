@@ -12,8 +12,10 @@ public class CarController : MonoBehaviour
 
     private StateMove _stateMove;
     private StateSteeringWheel _stateSteeringWheel;
-    [field: SerializeField] public float Horizontal { get; private set; }
-    [field: SerializeField] public float Vertical { get; private set; }
+    public float Horizontal { get; private set; }
+    public float Vertical { get; private set; }
+    [SerializeField] private float _breakForse;
+    public float CurrentBreakForse { get; private set; }
     [SerializeField] private Light[] _lights;
 
     public void SetSteer(float s)
@@ -32,10 +34,11 @@ public class CarController : MonoBehaviour
         {
             Move();
             TurnSide();
-            if (transform.position.y < -15f) GameManager.instance.Lose();
+            if (transform.position.y < -100f) GameManager.instance.Lose();
         }
-
     }
+
+
 
     private void TurnSide()
     {
@@ -88,5 +91,11 @@ public class CarController : MonoBehaviour
     public void TurnSide(int i)
     {
         _stateSteeringWheel = (StateSteeringWheel)i;
+    }
+
+    public void ApplyBreaking(bool activ)
+    {
+        CurrentBreakForse = activ ? _breakForse : 0;
+        foreach (var l in _lights) l.gameObject.SetActive(activ);
     }
 }
