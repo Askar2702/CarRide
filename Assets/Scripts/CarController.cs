@@ -26,6 +26,7 @@ public class CarController : MonoBehaviour
     {
         _stateMove = StateMove.Zero;
         _stateSteeringWheel = StateSteeringWheel.Middle;
+        CurrentBreakForse = _breakForse;
     }
 
     private void Update()
@@ -78,6 +79,7 @@ public class CarController : MonoBehaviour
     }
     public void MoveForward(int i)
     {
+        ApplyBreaking(false);
         _stateMove = (StateMove)i;
         if (_stateMove == StateMove.Back)
         {

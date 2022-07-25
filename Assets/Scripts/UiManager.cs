@@ -8,6 +8,7 @@ using System;
 
 public class UiManager : MonoBehaviour
 {
+    public static UiManager instance;
     public event Action<ButtonState> Act;
     #region UI
     [SerializeField] private RectTransform _panel;
@@ -15,6 +16,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private RectTransform _centerPos;
     [SerializeField] private GameObject _iconPause;
     [SerializeField] private GameObject _iconPlay;
+    [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private int _coinAmount;
     #endregion
     #region UI Button
     [SerializeField] private Button _start;
@@ -26,8 +29,11 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
+
+    [SerializeField] private Animation _anim;
     private void Awake()
     {
+        if (!instance) instance = this;
         _start.onClick.AddListener(StartGame);
         _nextGame.onClick.AddListener(() => NextGame());
         _exit.onClick.AddListener(() => ExitGame());
@@ -87,9 +93,17 @@ public class UiManager : MonoBehaviour
         _exit.gameObject.SetActive(true);
     }
 
-
     private void SetPosPanel(RectTransform pos)
     {
         _panel.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease);
+    }
+
+
+    public void CoinAdd()
+    {
+        _coinAmount++;
+        _coinText.text = _coinAmount.ToString();
+        _anim.Play();
+        // _coinText.transform.DOPunchScale(Vector3.up, 0.2f, 1, 0.2f);
     }
 }

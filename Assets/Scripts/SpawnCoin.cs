@@ -6,7 +6,7 @@ public class SpawnCoin : MonoBehaviour
 {
     [SerializeField] private int _count;
     [SerializeField] private float _distance;
-    [SerializeField] private GameObject _coin;
+    [SerializeField] private Coin _coin;
 
     private Vector3 _lastPos;
     private int _currentCoin;
@@ -31,10 +31,12 @@ public class SpawnCoin : MonoBehaviour
             _currentCoin++;
             _lastPos = p;
         }
-        if (_lastPos.z - p.z >= 25f)
+        if (_lastPos.z - p.z >= _distance)
         {
             _currentCoin = 0;
             _side = _sides[Random.Range(0, _sides.Length)];
         }
     }
+
+
 }
