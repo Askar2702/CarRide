@@ -28,12 +28,14 @@ public class GenerationMap : MonoBehaviour
     [SerializeField] private AnimationCurve _meshHeightCurve;
     [SerializeField] private AnimationCurve _curveRoad;
     [SerializeField] private AnimationCurve _curveHeightRoad;
+    private SpawnCoin _spawnCoin;
 
     public bool autoUpdate;
 
     public TerrainType[] regions;
     private void Start()
     {
+        _spawnCoin = GetComponent<SpawnCoin>();
         SetGeneration();
         RandomGenerated();
         GenerateMap();
@@ -72,7 +74,7 @@ public class GenerationMap : MonoBehaviour
         {
             var y = Mathf.RoundToInt(1 * _zSize * 1 * .05f);
             _mat.mainTextureScale = new Vector2(_mat.mainTextureScale.x, y);
-            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(transform.position, noiseMap, _sizeMeshGrid, meshHeightMultiplier, _meshHeightCurve, _curveRoad, _curveHeightRoad, levelOfDetail, GetComponent<SpawnCoin>()), _mat);
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(transform.position, noiseMap, _sizeMeshGrid, meshHeightMultiplier, _meshHeightCurve, _curveRoad, _curveHeightRoad, levelOfDetail, _spawnCoin), _mat);
         }
     }
 
@@ -103,4 +105,12 @@ public class GenerationMap : MonoBehaviour
         _isRandom = load.Item1;
         Seed = load.Item2;
     }
+}
+
+[System.Serializable]
+public struct TerrainType
+{
+    public string name;
+    public float height;
+    public Color colour;
 }

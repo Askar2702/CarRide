@@ -137,6 +137,8 @@ Library: lib_burst_generated
 --compilation-defines=CINEMACHINE_UNITY_ANIMATION
 --compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=TIMELINE_FRAMEACCURATE
+--compilation-defines=UNIVERSAL_RENDERER
+--compilation-defines=UNIVERSAL_731
 --generate-link-xml=Temp\burst.link.xml
 --output=D:\GameProjects\CarRide\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
@@ -165,6 +167,7 @@ Library: lib_burst_generated
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Assembly-CSharp-firstpass.dll
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
+--root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\StylizedWaterForURP.dll
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=D:\GameProjects\CarRide\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll

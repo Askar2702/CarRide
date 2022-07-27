@@ -27,7 +27,7 @@ public class SpawnCoin : MonoBehaviour
 
         if (_currentCoin <= 3)
         {
-            Instantiate(_coin, p, Quaternion.Euler(90f, 0f, 0f));
+            Instantiate(_coin, p, Quaternion.identity);
             _currentCoin++;
             _lastPos = p;
         }
