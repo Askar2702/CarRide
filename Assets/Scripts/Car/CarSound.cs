@@ -27,13 +27,21 @@ public class CarSound : MonoBehaviour
         _audioSourceCrash.PlayOneShot(_miniCollisonClip);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<GenerationMap>() || other.CompareTag("Finish")) PlayCollisionClip();
+    }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Finish"))
+        if (other.gameObject.GetComponent<GenerationMap>() || other.transform.CompareTag("Finish"))
         {
-            _audioSourceCrash.pitch = 1f;
-            _audioSourceCrash.volume = 1f;
-            _audioSourceCrash.Play();
+            if (transform.eulerAngles.x > 90 || transform.eulerAngles.x < -120 ||
+            transform.eulerAngles.z > 90 || transform.eulerAngles.x < -120)
+            {
+                _audioSourceCrash.pitch = 1f;
+                _audioSourceCrash.volume = 1f;
+                _audioSourceCrash.Play();
+            }
         }
     }
 

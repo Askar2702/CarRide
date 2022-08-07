@@ -65,12 +65,6 @@ public class RearWheelDrive : MonoBehaviour
             _torque = maxTorque * 0;
         }
 
-
-
-    }
-
-    private void FixedUpdate()
-    {
         foreach (WheelCollider wheel in wheels)
         {
             // a simple car where front wheels steer while rear ones drive
@@ -103,5 +97,7 @@ public class RearWheelDrive : MonoBehaviour
         {
             wheel.brakeTorque = _carController.CurrentBreakForse;
         }
+
+
     }
 }

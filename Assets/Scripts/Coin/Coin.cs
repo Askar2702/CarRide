@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
     private float _maxPosY = 2;
     private float _minPosY = -2;
     private float _time;
+
     private void Start()
     {
         StartCoroutine(StartRotate());
@@ -43,9 +44,14 @@ public class Coin : MonoBehaviour
         if (!gameObject.activeSelf) return;
         if (other.transform.root.TryGetComponent(out CarController car))
         {
-            UiManager.instance.CoinAdd();
-            gameObject.SetActive(false);
+            DisableCoin();
         }
     }
 
+
+    private void DisableCoin()
+    {
+        UiManager.instance.CoinAdd();
+        gameObject.SetActive(false);
+    }
 }

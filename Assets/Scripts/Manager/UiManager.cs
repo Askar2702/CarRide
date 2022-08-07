@@ -17,7 +17,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject _iconPause;
     [SerializeField] private GameObject _iconPlay;
     [SerializeField] private TextMeshProUGUI _coinText;
-    [SerializeField] private int _coinAmount;
+    private int _coinAmount;
     #endregion
     #region UI Button
     [SerializeField] private Button _start;
@@ -57,15 +57,20 @@ public class UiManager : MonoBehaviour
     private void RestartGame()
     {
         Act?.Invoke(ButtonState.Restart);
+        Time.timeScale = 1;
+        AudioListener.pause = false;
     }
     private void ExitGame()
     {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
         Act?.Invoke(ButtonState.Exit);
     }
 
     private void PauseGame()
     {
         if (GameManager.instance.GameState != GameState.Play) return;
+
         if (_panel.anchoredPosition == _UpPos.anchoredPosition)
         {
             SetPosPanel(_centerPos);
@@ -75,12 +80,16 @@ public class UiManager : MonoBehaviour
             _iconPause.SetActive(false);
             _iconPlay.SetActive(true);
             _exit.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            AudioListener.pause = true;
         }
         else if (_panel.anchoredPosition != _UpPos.anchoredPosition)
         {
             SetPosPanel(_UpPos);
             _iconPause.SetActive(true);
             _iconPlay.SetActive(false);
+            Time.timeScale = 1;
+            AudioListener.pause = false;
         }
     }
 
@@ -95,7 +104,7 @@ public class UiManager : MonoBehaviour
 
     private void SetPosPanel(RectTransform pos)
     {
-        _panel.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease);
+        _panel.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
     }
 
 

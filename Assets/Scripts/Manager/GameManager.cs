@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public Transform FinishPos;
 
     public GameState GameState { get; private set; }
-
+    [field: SerializeField] public Transform UICoinPos;
     private UiManager _uiManager;
     private void Awake()
     {
