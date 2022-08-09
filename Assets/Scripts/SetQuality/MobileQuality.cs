@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class MobileQuality : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float _renderScale;
     void Start()
     {
-        // QualitySettings.vSyncCount = 0;
-        // Application.targetFrameRate = 60;
+        // var urpAsset = (UniversalRenderPipelineAsset)GraphicsSettings.renderPipelineAsset;
+        // urpAsset.renderScale = 0.1f;
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
 
