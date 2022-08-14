@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class MeshGenerator
 {
-    public static MeshData GenerateTerrainMesh(Vector3 point, float[,] heightMap, int size, float heightMultiplier, AnimationCurve heightCurve, AnimationCurve curveRoad, AnimationCurve curveHeightRoad, int levelOfDetail, SpawnCoin spawn)
+    public static MeshData GenerateTerrainMesh(Vector3 point, float[,] heightMap, float size, float heightMultiplier, AnimationCurve heightCurve, AnimationCurve curveRoad, AnimationCurve curveHeightRoad, int levelOfDetail, SpawnCoin spawn)
     {
         int width = heightMap.GetLength(0);
         int height = heightMap.GetLength(1);

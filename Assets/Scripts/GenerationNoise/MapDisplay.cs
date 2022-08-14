@@ -22,7 +22,7 @@ public class MapDisplay : MonoBehaviour
             meshFilter.gameObject.AddComponent<MeshCollider>();
         gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter.sharedMesh;
         meshRenderer.sharedMaterial = mat;
-        transform.localScale = new Vector3(2f, 1.3f, 2f);
+        transform.localScale = new Vector3(1.5f, 1.3f, 1.5f);
     }
 
     // public void DrawMesh(MeshData[] meshData, Material mat)

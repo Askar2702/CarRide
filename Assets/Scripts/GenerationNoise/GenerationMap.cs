@@ -10,7 +10,7 @@ public class GenerationMap : MonoBehaviour
     public DrawMode drawMode;
     [SerializeField] private int _xSize;
     [SerializeField] private int _zSize;
-    [SerializeField] private int _sizeMeshGrid;
+    [SerializeField] private float _sizeMeshGrid;
     public const int mapChunkSize = 241;
     [Range(0, 6)]
     public int levelOfDetail;
@@ -75,6 +75,7 @@ public class GenerationMap : MonoBehaviour
             var y = Mathf.RoundToInt(1 * _zSize * 1 * .05f);
             _mat.mainTextureScale = new Vector2(_mat.mainTextureScale.x, y);
             display.DrawMesh(MeshGenerator.GenerateTerrainMesh(transform.position, noiseMap, _sizeMeshGrid, meshHeightMultiplier, _meshHeightCurve, _curveRoad, _curveHeightRoad, levelOfDetail, _spawnCoin), _mat);
+            //            SliceManager.instance.StartCut();
         }
     }
 

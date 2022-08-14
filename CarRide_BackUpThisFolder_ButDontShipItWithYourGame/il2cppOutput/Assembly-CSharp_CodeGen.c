@@ -150,8 +150,8 @@ extern void MapDisplay_DrawTexture_m080013C02F956CB3A3E850C59C60B1B0C1AE0F52 (vo
 extern void MapDisplay_DrawMesh_m4310C6FBE8D697BFA5D6F2C5049F85AE57271E0E (void);
 // 0x00000045 System.Void MapDisplay::.ctor()
 extern void MapDisplay__ctor_m4C40E923B2DCC0446D6AF35A8CF97EA55799784C (void);
-// 0x00000046 MeshData MeshGenerator::GenerateTerrainMesh(UnityEngine.Vector3,System.Single[,],System.Int32,System.Single,UnityEngine.AnimationCurve,UnityEngine.AnimationCurve,UnityEngine.AnimationCurve,System.Int32,SpawnCoin)
-extern void MeshGenerator_GenerateTerrainMesh_mC401EB396690662F700DBE7DB3B7440251F8F065 (void);
+// 0x00000046 MeshData MeshGenerator::GenerateTerrainMesh(UnityEngine.Vector3,System.Single[,],System.Single,System.Single,UnityEngine.AnimationCurve,UnityEngine.AnimationCurve,UnityEngine.AnimationCurve,System.Int32,SpawnCoin)
+extern void MeshGenerator_GenerateTerrainMesh_mB30438215189A6A91E2C81A54D9EED69201B773B (void);
 // 0x00000047 System.Void MeshData::.ctor(System.Int32,System.Int32)
 extern void MeshData__ctor_mA26165BBAA6EA52A2E979594B71FCF34D94023AB (void);
 // 0x00000048 System.Void MeshData::AddTriangle(System.Int32,System.Int32,System.Int32)
@@ -276,7 +276,125 @@ extern void SaveSystem_LoadData_mD7F4E317BD57CE004E92B4C43F36A8FAD0AED810 (void)
 extern void MobileQuality_Start_mEC556CE194B05B11A2B5A2A84CED29313517EDBC (void);
 // 0x00000084 System.Void MobileQuality::.ctor()
 extern void MobileQuality__ctor_mF518AEC24E6E803EDC81E0B7A3DAF3EFFE3E151A (void);
-static Il2CppMethodPointer s_methodPointers[132] = 
+// 0x00000085 System.Void AskarLighsaber::Init()
+extern void AskarLighsaber_Init_m0F5CC7DB1408B9740A9F633ACC83A8AC636CBAD8 (void);
+// 0x00000086 System.Void AskarLighsaber::OnTriggerEnter(UnityEngine.Collider)
+extern void AskarLighsaber_OnTriggerEnter_mE3D3DF9E8B266103ABCE3E494552A4E3C32B7AA5 (void);
+// 0x00000087 System.Void AskarLighsaber::OnTriggerExit(UnityEngine.Collider)
+extern void AskarLighsaber_OnTriggerExit_m6CDD4A99512C242786B62FB3E5A193AEA736050D (void);
+// 0x00000088 System.Void AskarLighsaber::.ctor()
+extern void AskarLighsaber__ctor_m4613810F55D08C86C59F7C589A7CED3DE5D9D3F1 (void);
+// 0x00000089 System.Boolean Sliceable::get_IsSolid()
+extern void Sliceable_get_IsSolid_m0166510B5455A213252E1FEAD45FD91C0D397FCB (void);
+// 0x0000008A System.Void Sliceable::set_IsSolid(System.Boolean)
+extern void Sliceable_set_IsSolid_mD39C055C28C5757B9FB4F6AB2B7796984F049AB8 (void);
+// 0x0000008B System.Boolean Sliceable::get_ReverseWireTriangles()
+extern void Sliceable_get_ReverseWireTriangles_mA3372822304923F6D3EFDC93958EAAAA1D00C739 (void);
+// 0x0000008C System.Void Sliceable::set_ReverseWireTriangles(System.Boolean)
+extern void Sliceable_set_ReverseWireTriangles_m718F0D73F61CB9A642494F54EDC9C3EA5671ABB9 (void);
+// 0x0000008D System.Boolean Sliceable::get_UseGravity()
+extern void Sliceable_get_UseGravity_mFDF514AC50012CD7C193D7F16134478CC4F849FD (void);
+// 0x0000008E System.Void Sliceable::set_UseGravity(System.Boolean)
+extern void Sliceable_set_UseGravity_mF0FBCA528AFE78B17F6E0991A616D663266D8F07 (void);
+// 0x0000008F System.Boolean Sliceable::get_ShareVertices()
+extern void Sliceable_get_ShareVertices_m72F60A0C617E8FB67916D342511DE19C49B54E17 (void);
+// 0x00000090 System.Void Sliceable::set_ShareVertices(System.Boolean)
+extern void Sliceable_set_ShareVertices_mFE42550199AB19A0FEE69C39DBEFAF55C4F96C0C (void);
+// 0x00000091 System.Boolean Sliceable::get_SmoothVertices()
+extern void Sliceable_get_SmoothVertices_m6BF4468C47FC92A78F18ABC86B9AED23F9233DAC (void);
+// 0x00000092 System.Void Sliceable::set_SmoothVertices(System.Boolean)
+extern void Sliceable_set_SmoothVertices_m4F1418BC9A869109430AB2CD797E675C19BEFCE6 (void);
+// 0x00000093 System.Void Sliceable::.ctor()
+extern void Sliceable__ctor_m7BBA8F315B316717B8D201C7C3BE33B051617B74 (void);
+// 0x00000094 System.Void SliceManager::Awake()
+extern void SliceManager_Awake_mFCA750B405B2E8A8F8109B74F4AF68381EDB1D45 (void);
+// 0x00000095 System.Void SliceManager::StartCut()
+extern void SliceManager_StartCut_m9167C2B9F9AED6348E20BF42537121D67C4686EE (void);
+// 0x00000096 System.Void SliceManager::RoadCollection(AskarLighsaber)
+extern void SliceManager_RoadCollection_mC9F1928A528FA24C99199EB485513B46C2E2D82E (void);
+// 0x00000097 System.Void SliceManager::DisableRoads()
+extern void SliceManager_DisableRoads_mC535B0B6BB69B76F7852987A766FE6593D72BE29 (void);
+// 0x00000098 System.Collections.IEnumerator SliceManager::LoadScene()
+extern void SliceManager_LoadScene_mF0B584387D78AA3501D6A70E796C8A0754F57E7A (void);
+// 0x00000099 System.Void SliceManager::GetClosestRoad(UnityEngine.Transform)
+extern void SliceManager_GetClosestRoad_m87D24A448D0A6C3EEAB9F15DF02435763651EFF5 (void);
+// 0x0000009A System.Void SliceManager::.ctor()
+extern void SliceManager__ctor_m7B6E31D0DEC4AE805E39F11512D3C95D18838537 (void);
+// 0x0000009B System.Void SliceManager/<RoadCollection>d__10::MoveNext()
+extern void U3CRoadCollectionU3Ed__10_MoveNext_m2C7BE9DB050A34D763487F8BE26605C31D4F3443 (void);
+// 0x0000009C System.Void SliceManager/<RoadCollection>d__10::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CRoadCollectionU3Ed__10_SetStateMachine_m402958C3803B7223CE0141D4D966F56BB7E73FF4 (void);
+// 0x0000009D System.Void SliceManager/<LoadScene>d__12::.ctor(System.Int32)
+extern void U3CLoadSceneU3Ed__12__ctor_m5390D87585A0F812E8FD5966A832A5AED3CE6C11 (void);
+// 0x0000009E System.Void SliceManager/<LoadScene>d__12::System.IDisposable.Dispose()
+extern void U3CLoadSceneU3Ed__12_System_IDisposable_Dispose_m036A73CA1CA97B2CB42F2184FDB37B9D8B76D6CA (void);
+// 0x0000009F System.Boolean SliceManager/<LoadScene>d__12::MoveNext()
+extern void U3CLoadSceneU3Ed__12_MoveNext_mA2C23684AEB7F0D751EE587E70000E9664D42E03 (void);
+// 0x000000A0 System.Object SliceManager/<LoadScene>d__12::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CLoadSceneU3Ed__12_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m3AE942408E705B10ADECA2F4369AAEF8F6F82891 (void);
+// 0x000000A1 System.Void SliceManager/<LoadScene>d__12::System.Collections.IEnumerator.Reset()
+extern void U3CLoadSceneU3Ed__12_System_Collections_IEnumerator_Reset_m5B875BCB6F77273C511EF08FF70E74024D7B1511 (void);
+// 0x000000A2 System.Object SliceManager/<LoadScene>d__12::System.Collections.IEnumerator.get_Current()
+extern void U3CLoadSceneU3Ed__12_System_Collections_IEnumerator_get_Current_m8EC203FE3C87D43F2B5AB4EB877E5E8FEE5E86C3 (void);
+// 0x000000A3 UnityEngine.GameObject[] Assets.Scripts.Slicer::Slice(UnityEngine.Plane,UnityEngine.GameObject)
+extern void Slicer_Slice_mC611F4E7A62033E368BC1999D3655EC5E0A5B5CC (void);
+// 0x000000A4 UnityEngine.GameObject Assets.Scripts.Slicer::CreateMeshGameObject(UnityEngine.GameObject)
+extern void Slicer_CreateMeshGameObject_m158FD9CADD388B5D635101697294787D987F3CFB (void);
+// 0x000000A5 System.Void Assets.Scripts.Slicer::SetupCollidersAndRigidBodys(UnityEngine.GameObject&,UnityEngine.Mesh,System.Boolean)
+extern void Slicer_SetupCollidersAndRigidBodys_mAC98651612FCC61391CF57B19510A4EA8943D05A (void);
+// 0x000000A6 System.Void Assets.Scripts.Slicer::.ctor()
+extern void Slicer__ctor_m16111633EC68F668BCDA09DA06A5BCCC7B9568FB (void);
+// 0x000000A7 System.Boolean Assets.Scripts.SlicesMetadata::get_IsSolid()
+extern void SlicesMetadata_get_IsSolid_m584B59C3E801015367C0B45E87AE60CAB9C83F3F (void);
+// 0x000000A8 System.Void Assets.Scripts.SlicesMetadata::set_IsSolid(System.Boolean)
+extern void SlicesMetadata_set_IsSolid_mD990C68DD52237F2E8FB4A482C1CC5D8D44FBC84 (void);
+// 0x000000A9 UnityEngine.Mesh Assets.Scripts.SlicesMetadata::get_PositiveSideMesh()
+extern void SlicesMetadata_get_PositiveSideMesh_m4968BDA5AD1310DAEF5C8694BF06B7B4F8FB8F04 (void);
+// 0x000000AA UnityEngine.Mesh Assets.Scripts.SlicesMetadata::get_NegativeSideMesh()
+extern void SlicesMetadata_get_NegativeSideMesh_m310FE18D4F18103FF2E1D68CCDB9FF0E5EF55E8D (void);
+// 0x000000AB System.Void Assets.Scripts.SlicesMetadata::.ctor(UnityEngine.Plane,UnityEngine.Mesh,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+extern void SlicesMetadata__ctor_m9B9A32F3DBDB3E6527BB2C80F7FB62EEFB8EBAA0 (void);
+// 0x000000AC System.Void Assets.Scripts.SlicesMetadata::AddTrianglesNormalAndUvs(Assets.Scripts.MeshSide,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,System.Boolean,System.Boolean)
+extern void SlicesMetadata_AddTrianglesNormalAndUvs_m61FAC8C21628299EA3E96FC197BDD63D0E866FEA (void);
+// 0x000000AD System.Void Assets.Scripts.SlicesMetadata::AddTrianglesNormalsAndUvs(System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<System.Int32>&,System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<UnityEngine.Vector2>&,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,UnityEngine.Vector3,System.Nullable`1<UnityEngine.Vector3>,UnityEngine.Vector2,System.Boolean,System.Boolean)
+extern void SlicesMetadata_AddTrianglesNormalsAndUvs_m9294C980C8E6AFE060FB65D81FF149EC459FF78E (void);
+// 0x000000AE System.Void Assets.Scripts.SlicesMetadata::AddVertNormalUv(System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<UnityEngine.Vector2>&,System.Collections.Generic.List`1<System.Int32>&,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector2,System.Nullable`1<System.Int32>)
+extern void SlicesMetadata_AddVertNormalUv_mCE4C93057DBF616886CB78FC25E5FFE5A6513AE9 (void);
+// 0x000000AF System.Void Assets.Scripts.SlicesMetadata::ShiftTriangleIndeces(System.Collections.Generic.List`1<System.Int32>&)
+extern void SlicesMetadata_ShiftTriangleIndeces_m16E130459303378B0AD058A787FE0FF4D0718370 (void);
+// 0x000000B0 System.Void Assets.Scripts.SlicesMetadata::AddReverseTriangleWinding()
+extern void SlicesMetadata_AddReverseTriangleWinding_m95625D584980385E77E5D7BE40A06FD431614636 (void);
+// 0x000000B1 System.Void Assets.Scripts.SlicesMetadata::JoinPointsAlongPlane()
+extern void SlicesMetadata_JoinPointsAlongPlane_mAE263C594E9F2C2265AE4D8198950E52EB6B6DD5 (void);
+// 0x000000B2 UnityEngine.Vector3 Assets.Scripts.SlicesMetadata::GetHalfwayPoint(System.Single&)
+extern void SlicesMetadata_GetHalfwayPoint_m6F032100908E49075E732F680CE3306B649D4DE0 (void);
+// 0x000000B3 System.Void Assets.Scripts.SlicesMetadata::SetMeshData(Assets.Scripts.MeshSide)
+extern void SlicesMetadata_SetMeshData_m12528C4E603EA714BD67FF065AB3EFDDCE3C7AB8 (void);
+// 0x000000B4 System.Void Assets.Scripts.SlicesMetadata::ComputeNewMeshes()
+extern void SlicesMetadata_ComputeNewMeshes_m11CD13D138EDCDA7F0DF90AFD36183555801345A (void);
+// 0x000000B5 UnityEngine.Vector3 Assets.Scripts.SlicesMetadata::GetRayPlaneIntersectionPointAndUv(UnityEngine.Vector3,UnityEngine.Vector2,UnityEngine.Vector3,UnityEngine.Vector2,UnityEngine.Vector2&)
+extern void SlicesMetadata_GetRayPlaneIntersectionPointAndUv_m97993F4CCEC980E60A8E1D233CF1C45CFDBEB859 (void);
+// 0x000000B6 System.Single Assets.Scripts.SlicesMetadata::GetDistanceRelativeToPlane(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3&)
+extern void SlicesMetadata_GetDistanceRelativeToPlane_mF246E5CA8AA0356B0C3194E8B8B94715106D9CBD (void);
+// 0x000000B7 UnityEngine.Vector2 Assets.Scripts.SlicesMetadata::InterpolateUvs(UnityEngine.Vector2,UnityEngine.Vector2,System.Single)
+extern void SlicesMetadata_InterpolateUvs_m3AD366B98C287C88C1FFE4A5D1760592759FA619 (void);
+// 0x000000B8 UnityEngine.Vector3 Assets.Scripts.SlicesMetadata::ComputeNormal(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)
+extern void SlicesMetadata_ComputeNormal_mBA71DA828BEDE1CDFBCD1AA68C12AA0014D469CD (void);
+// 0x000000B9 System.Collections.Generic.List`1<UnityEngine.Vector3> Assets.Scripts.SlicesMetadata::FlipNormals(System.Collections.Generic.List`1<UnityEngine.Vector3>)
+extern void SlicesMetadata_FlipNormals_mC5DD1A9042DAD75DAF91DE4C6D9636A88E7E8074 (void);
+// 0x000000BA System.Void Assets.Scripts.SlicesMetadata::SmoothVertices()
+extern void SlicesMetadata_SmoothVertices_mDB173EDF9AEB938D7A30E49B12E0C00B23603B80 (void);
+// 0x000000BB System.Void Assets.Scripts.SlicesMetadata::DoSmoothing(System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<UnityEngine.Vector3>&,System.Collections.Generic.List`1<System.Int32>&)
+extern void SlicesMetadata_DoSmoothing_mBCB1E4082B49C4CBB2ECDD00141522B9A2B38781 (void);
+// 0x000000BC System.Void Assets.Scripts.SlicesMetadata/<>c::.cctor()
+extern void U3CU3Ec__cctor_m9AFFCD06C5A7AF981A6CFA003D9CBF21BDCF0773 (void);
+// 0x000000BD System.Void Assets.Scripts.SlicesMetadata/<>c::.ctor()
+extern void U3CU3Ec__ctor_mBCDFD06A5035081BF2C9D5CA4FFA31875C686063 (void);
+// 0x000000BE System.Void Assets.Scripts.SlicesMetadata/<>c::<DoSmoothing>b__40_0(UnityEngine.Vector3)
+extern void U3CU3Ec_U3CDoSmoothingU3Eb__40_0_m499D8DB59ED9199D982B546C7BF895CF97085416 (void);
+// 0x000000BF System.Void Assets.Scripts.SlicesMetadata/<>c::<DoSmoothing>b__40_1(UnityEngine.Vector3)
+extern void U3CU3Ec_U3CDoSmoothingU3Eb__40_1_mAB5BE57F51A9CBBAA8EDFE2EFB587562854FD06D (void);
+static Il2CppMethodPointer s_methodPointers[191] = 
 {
 	CarsMenu_Start_mDB8BBE2DE5B9BCAEF5E1925A33FE1AA6DA27C715,
 	CarsMenu_NextCar_m1BCCC28BB02BFD42195375AA987F7F9D44137812,
@@ -347,7 +465,7 @@ static Il2CppMethodPointer s_methodPointers[132] =
 	MapDisplay_DrawTexture_m080013C02F956CB3A3E850C59C60B1B0C1AE0F52,
 	MapDisplay_DrawMesh_m4310C6FBE8D697BFA5D6F2C5049F85AE57271E0E,
 	MapDisplay__ctor_m4C40E923B2DCC0446D6AF35A8CF97EA55799784C,
-	MeshGenerator_GenerateTerrainMesh_mC401EB396690662F700DBE7DB3B7440251F8F065,
+	MeshGenerator_GenerateTerrainMesh_mB30438215189A6A91E2C81A54D9EED69201B773B,
 	MeshData__ctor_mA26165BBAA6EA52A2E979594B71FCF34D94023AB,
 	MeshData_AddTriangle_mA80626FED933D842FCDFFDC996A6B415F4DBEE22,
 	MeshData_CreateMesh_m0C0526F729CCAB828F02CC540CA1684C67D2458A,
@@ -410,150 +528,275 @@ static Il2CppMethodPointer s_methodPointers[132] =
 	SaveSystem_LoadData_mD7F4E317BD57CE004E92B4C43F36A8FAD0AED810,
 	MobileQuality_Start_mEC556CE194B05B11A2B5A2A84CED29313517EDBC,
 	MobileQuality__ctor_mF518AEC24E6E803EDC81E0B7A3DAF3EFFE3E151A,
+	AskarLighsaber_Init_m0F5CC7DB1408B9740A9F633ACC83A8AC636CBAD8,
+	AskarLighsaber_OnTriggerEnter_mE3D3DF9E8B266103ABCE3E494552A4E3C32B7AA5,
+	AskarLighsaber_OnTriggerExit_m6CDD4A99512C242786B62FB3E5A193AEA736050D,
+	AskarLighsaber__ctor_m4613810F55D08C86C59F7C589A7CED3DE5D9D3F1,
+	Sliceable_get_IsSolid_m0166510B5455A213252E1FEAD45FD91C0D397FCB,
+	Sliceable_set_IsSolid_mD39C055C28C5757B9FB4F6AB2B7796984F049AB8,
+	Sliceable_get_ReverseWireTriangles_mA3372822304923F6D3EFDC93958EAAAA1D00C739,
+	Sliceable_set_ReverseWireTriangles_m718F0D73F61CB9A642494F54EDC9C3EA5671ABB9,
+	Sliceable_get_UseGravity_mFDF514AC50012CD7C193D7F16134478CC4F849FD,
+	Sliceable_set_UseGravity_mF0FBCA528AFE78B17F6E0991A616D663266D8F07,
+	Sliceable_get_ShareVertices_m72F60A0C617E8FB67916D342511DE19C49B54E17,
+	Sliceable_set_ShareVertices_mFE42550199AB19A0FEE69C39DBEFAF55C4F96C0C,
+	Sliceable_get_SmoothVertices_m6BF4468C47FC92A78F18ABC86B9AED23F9233DAC,
+	Sliceable_set_SmoothVertices_m4F1418BC9A869109430AB2CD797E675C19BEFCE6,
+	Sliceable__ctor_m7BBA8F315B316717B8D201C7C3BE33B051617B74,
+	SliceManager_Awake_mFCA750B405B2E8A8F8109B74F4AF68381EDB1D45,
+	SliceManager_StartCut_m9167C2B9F9AED6348E20BF42537121D67C4686EE,
+	SliceManager_RoadCollection_mC9F1928A528FA24C99199EB485513B46C2E2D82E,
+	SliceManager_DisableRoads_mC535B0B6BB69B76F7852987A766FE6593D72BE29,
+	SliceManager_LoadScene_mF0B584387D78AA3501D6A70E796C8A0754F57E7A,
+	SliceManager_GetClosestRoad_m87D24A448D0A6C3EEAB9F15DF02435763651EFF5,
+	SliceManager__ctor_m7B6E31D0DEC4AE805E39F11512D3C95D18838537,
+	U3CRoadCollectionU3Ed__10_MoveNext_m2C7BE9DB050A34D763487F8BE26605C31D4F3443,
+	U3CRoadCollectionU3Ed__10_SetStateMachine_m402958C3803B7223CE0141D4D966F56BB7E73FF4,
+	U3CLoadSceneU3Ed__12__ctor_m5390D87585A0F812E8FD5966A832A5AED3CE6C11,
+	U3CLoadSceneU3Ed__12_System_IDisposable_Dispose_m036A73CA1CA97B2CB42F2184FDB37B9D8B76D6CA,
+	U3CLoadSceneU3Ed__12_MoveNext_mA2C23684AEB7F0D751EE587E70000E9664D42E03,
+	U3CLoadSceneU3Ed__12_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m3AE942408E705B10ADECA2F4369AAEF8F6F82891,
+	U3CLoadSceneU3Ed__12_System_Collections_IEnumerator_Reset_m5B875BCB6F77273C511EF08FF70E74024D7B1511,
+	U3CLoadSceneU3Ed__12_System_Collections_IEnumerator_get_Current_m8EC203FE3C87D43F2B5AB4EB877E5E8FEE5E86C3,
+	Slicer_Slice_mC611F4E7A62033E368BC1999D3655EC5E0A5B5CC,
+	Slicer_CreateMeshGameObject_m158FD9CADD388B5D635101697294787D987F3CFB,
+	Slicer_SetupCollidersAndRigidBodys_mAC98651612FCC61391CF57B19510A4EA8943D05A,
+	Slicer__ctor_m16111633EC68F668BCDA09DA06A5BCCC7B9568FB,
+	SlicesMetadata_get_IsSolid_m584B59C3E801015367C0B45E87AE60CAB9C83F3F,
+	SlicesMetadata_set_IsSolid_mD990C68DD52237F2E8FB4A482C1CC5D8D44FBC84,
+	SlicesMetadata_get_PositiveSideMesh_m4968BDA5AD1310DAEF5C8694BF06B7B4F8FB8F04,
+	SlicesMetadata_get_NegativeSideMesh_m310FE18D4F18103FF2E1D68CCDB9FF0E5EF55E8D,
+	SlicesMetadata__ctor_m9B9A32F3DBDB3E6527BB2C80F7FB62EEFB8EBAA0,
+	SlicesMetadata_AddTrianglesNormalAndUvs_m61FAC8C21628299EA3E96FC197BDD63D0E866FEA,
+	SlicesMetadata_AddTrianglesNormalsAndUvs_m9294C980C8E6AFE060FB65D81FF149EC459FF78E,
+	SlicesMetadata_AddVertNormalUv_mCE4C93057DBF616886CB78FC25E5FFE5A6513AE9,
+	SlicesMetadata_ShiftTriangleIndeces_m16E130459303378B0AD058A787FE0FF4D0718370,
+	SlicesMetadata_AddReverseTriangleWinding_m95625D584980385E77E5D7BE40A06FD431614636,
+	SlicesMetadata_JoinPointsAlongPlane_mAE263C594E9F2C2265AE4D8198950E52EB6B6DD5,
+	SlicesMetadata_GetHalfwayPoint_m6F032100908E49075E732F680CE3306B649D4DE0,
+	SlicesMetadata_SetMeshData_m12528C4E603EA714BD67FF065AB3EFDDCE3C7AB8,
+	SlicesMetadata_ComputeNewMeshes_m11CD13D138EDCDA7F0DF90AFD36183555801345A,
+	SlicesMetadata_GetRayPlaneIntersectionPointAndUv_m97993F4CCEC980E60A8E1D233CF1C45CFDBEB859,
+	SlicesMetadata_GetDistanceRelativeToPlane_mF246E5CA8AA0356B0C3194E8B8B94715106D9CBD,
+	SlicesMetadata_InterpolateUvs_m3AD366B98C287C88C1FFE4A5D1760592759FA619,
+	SlicesMetadata_ComputeNormal_mBA71DA828BEDE1CDFBCD1AA68C12AA0014D469CD,
+	SlicesMetadata_FlipNormals_mC5DD1A9042DAD75DAF91DE4C6D9636A88E7E8074,
+	SlicesMetadata_SmoothVertices_mDB173EDF9AEB938D7A30E49B12E0C00B23603B80,
+	SlicesMetadata_DoSmoothing_mBCB1E4082B49C4CBB2ECDD00141522B9A2B38781,
+	U3CU3Ec__cctor_m9AFFCD06C5A7AF981A6CFA003D9CBF21BDCF0773,
+	U3CU3Ec__ctor_mBCDFD06A5035081BF2C9D5CA4FFA31875C686063,
+	U3CU3Ec_U3CDoSmoothingU3Eb__40_0_m499D8DB59ED9199D982B546C7BF895CF97085416,
+	U3CU3Ec_U3CDoSmoothingU3Eb__40_1_mAB5BE57F51A9CBBAA8EDFE2EFB587562854FD06D,
 };
-static const int32_t s_InvokerIndices[132] = 
+extern void U3CRoadCollectionU3Ed__10_MoveNext_m2C7BE9DB050A34D763487F8BE26605C31D4F3443_AdjustorThunk (void);
+extern void U3CRoadCollectionU3Ed__10_SetStateMachine_m402958C3803B7223CE0141D4D966F56BB7E73FF4_AdjustorThunk (void);
+static Il2CppTokenAdjustorThunkPair s_adjustorThunks[2] = 
 {
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6120,
-	5019,
-	6120,
-	5019,
-	6120,
-	5019,
-	5019,
-	6187,
-	6187,
-	6187,
-	6187,
-	4934,
-	4934,
-	4865,
-	6187,
-	6187,
-	6187,
-	6187,
-	4964,
-	4964,
-	6187,
-	6187,
-	4964,
-	4964,
-	4964,
-	6187,
-	6187,
-	6062,
-	4964,
-	6187,
-	6187,
-	4934,
-	6187,
-	5970,
-	6062,
-	6187,
-	6062,
-	6187,
-	6187,
-	5074,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	4964,
-	6187,
-	6033,
-	4934,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	4964,
-	2861,
-	6187,
-	6393,
-	2605,
-	1459,
-	6062,
-	6428,
-	7108,
-	7979,
-	10299,
-	6187,
-	6187,
-	6187,
-	6062,
-	6187,
-	4934,
-	6187,
-	5970,
-	6062,
-	6187,
-	6062,
-	6187,
-	6187,
-	4964,
-	4964,
-	6033,
-	4934,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	4934,
-	4934,
-	5954,
-	6187,
-	4964,
-	4964,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	4964,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6187,
-	6033,
-	4934,
-	5970,
-	4865,
-	2566,
-	6187,
-	6187,
-	4964,
-	10579,
-	11370,
-	6187,
-	6187,
+	{ 0x0600009B, U3CRoadCollectionU3Ed__10_MoveNext_m2C7BE9DB050A34D763487F8BE26605C31D4F3443_AdjustorThunk },
+	{ 0x0600009C, U3CRoadCollectionU3Ed__10_SetStateMachine_m402958C3803B7223CE0141D4D966F56BB7E73FF4_AdjustorThunk },
+};
+static const int32_t s_InvokerIndices[191] = 
+{
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6079,
+	5002,
+	6079,
+	5002,
+	6079,
+	5002,
+	5002,
+	6147,
+	6147,
+	6147,
+	6147,
+	4919,
+	4919,
+	4850,
+	6147,
+	6147,
+	6147,
+	6147,
+	4949,
+	4949,
+	6147,
+	6147,
+	4949,
+	4949,
+	4949,
+	6147,
+	6147,
+	6022,
+	4949,
+	6147,
+	6147,
+	4919,
+	6147,
+	5930,
+	6022,
+	6147,
+	6022,
+	6147,
+	6147,
+	5056,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	4949,
+	6147,
+	5993,
+	4919,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	4949,
+	2865,
+	6147,
+	6352,
+	2610,
+	1465,
+	6022,
+	6387,
+	7067,
+	7935,
+	10233,
+	6147,
+	6147,
+	6147,
+	6022,
+	6147,
+	4919,
+	6147,
+	5930,
+	6022,
+	6147,
+	6022,
+	6147,
+	6147,
+	4949,
+	4949,
+	5993,
+	4919,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	4919,
+	4919,
+	5914,
+	6147,
+	4949,
+	4949,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	4949,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	6147,
+	5993,
+	4919,
+	5930,
+	4850,
+	2571,
+	6147,
+	6147,
+	4949,
+	10513,
+	11294,
+	6147,
+	6147,
+	6147,
+	4949,
+	4949,
+	6147,
+	5930,
+	4850,
+	5930,
+	4850,
+	5930,
+	4850,
+	5930,
+	4850,
+	5930,
+	4850,
+	6147,
+	6147,
+	6147,
+	4949,
+	6147,
+	6022,
+	4949,
+	6147,
+	6147,
+	4949,
+	4919,
+	6147,
+	5930,
+	6022,
+	6147,
+	6022,
+	8882,
+	10233,
+	8210,
+	6147,
+	5930,
+	4850,
+	6022,
+	6022,
+	298,
+	22,
+	16,
+	108,
+	4838,
+	6147,
+	6147,
+	4627,
+	4919,
+	6147,
+	464,
+	1357,
+	1369,
+	1372,
+	4441,
+	6147,
+	1394,
+	11333,
+	6147,
+	5056,
+	5056,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	132,
+	191,
 	s_methodPointers,
-	0,
-	NULL,
+	2,
+	s_adjustorThunks,
 	s_InvokerIndices,
 	0,
 	NULL,

@@ -13,7 +13,6 @@ public class MapGeneratorEditor : Editor
             if (mapGen.autoUpdate)
             {
                 mapGen.GenerateMap();
-                Debug.Log("23");
             }
         }
         if (GUILayout.Button("Generate")) mapGen.GenerateMap();

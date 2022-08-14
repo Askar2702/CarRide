@@ -39,9 +39,11 @@ public class Load : MonoBehaviour
         AsyncOperation loadSceneGame = SceneManager.LoadSceneAsync("Game");
         loadSceneGame.allowSceneActivation = false;
         //When the load is still in progress, output the Text and progress bar
+        float timer = 0;
         while (!loadSceneGame.isDone)
         {
-            _load.fillAmount = loadSceneGame.progress;
+            timer = loadSceneGame.progress;
+            _load.fillAmount = Mathf.Clamp(timer, 0f, 0.7f);
             if (loadSceneGame.progress >= 0.9f)
             {
                 loadSceneGame.allowSceneActivation = true;

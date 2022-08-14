@@ -7,7 +7,7 @@ public class SpawnCoin : MonoBehaviour
     [SerializeField] private int _count;
     [SerializeField] private float _distance;
     [SerializeField] private Coin _coin;
-
+    [SerializeField] private Transform _parent;
     private Vector3 _lastPos;
     private int _currentCoin;
     private float[] _sides;
@@ -23,13 +23,14 @@ public class SpawnCoin : MonoBehaviour
     }
     public void Spawn(Vector3 pos)
     {
-        var p = new Vector3((pos.x * 2) + _side, (pos.y * 1.3f) + 3f, pos.z * 2f);
+        var p = new Vector3((pos.x * 1.5f) + _side, (pos.y * 1.3f) + 3f, pos.z * 1.5f);
 
         if (_currentCoin <= 3)
         {
-            Instantiate(_coin, p, Quaternion.identity);
+            var coin = Instantiate(_coin, p, Quaternion.identity);
             _currentCoin++;
             _lastPos = p;
+            coin.transform.parent = _parent;
         }
         if (_lastPos.z - p.z >= _distance)
         {

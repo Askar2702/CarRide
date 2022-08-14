@@ -18,6 +18,8 @@ public class CarController : MonoBehaviour
     public float CurrentBreakForse { get; private set; }
     [SerializeField] private Light[] _lights;
     [SerializeField] private CarSound _carSound;
+
+    private Transform _road;
     public void SetSteer(float s)
     {
         Horizontal = s;
@@ -36,7 +38,9 @@ public class CarController : MonoBehaviour
             Move();
             TurnSide();
             if (transform.position.y < -100f) GameManager.instance.Lose();
+            //            SliceManager.instance.GetClosestRoad(this.transform);
         }
+
     }
 
 
