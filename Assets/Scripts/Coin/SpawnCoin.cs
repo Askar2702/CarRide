@@ -14,7 +14,7 @@ public class SpawnCoin : MonoBehaviour
     private float _side;
     private void Awake()
     {
-        _sides = new float[] { 0f, -10f, 10f };
+        _sides = new float[] { 0f, -5f, 5f };
     }
     private void Start()
     {

@@ -113,6 +113,5 @@ public class UiManager : MonoBehaviour
         _coinAmount++;
         _coinText.text = _coinAmount.ToString();
         _anim.Play();
-        // _coinText.transform.DOPunchScale(Vector3.up, 0.2f, 1, 0.2f);
     }
 }

@@ -14,7 +14,7 @@ public class CarController : MonoBehaviour
     private StateSteeringWheel _stateSteeringWheel;
     public float Horizontal { get; private set; }
     public float Vertical { get; private set; }
-    [SerializeField] private float _breakForse;
+    private const float _breakForse = 2000f;
     public float CurrentBreakForse { get; private set; }
     [SerializeField] private Light[] _lights;
     [SerializeField] private CarSound _carSound;
@@ -36,33 +36,16 @@ public class CarController : MonoBehaviour
         if (GameManager.instance.GameState == GameState.Play)
         {
             Move();
-            TurnSide();
             if (transform.position.y < -100f) GameManager.instance.Lose();
             //            SliceManager.instance.GetClosestRoad(this.transform);
         }
+        else if (GameManager.instance.GameState == GameState.Finish)
+        {
+            ApplyBreaking(true);
+        }
 
     }
 
-
-
-    private void TurnSide()
-    {
-
-        if (_stateSteeringWheel == StateSteeringWheel.Right)
-        {
-            Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime, -1, 1);
-        }
-        else if (_stateSteeringWheel == StateSteeringWheel.Left)
-        {
-            Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime, -1, 1);
-        }
-        else
-        {
-            if (Horizontal == 0) return;
-            if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime, -1, 1);
-            else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime, -1, 1);
-        }
-    }
 
     private void Move()
     {

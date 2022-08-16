@@ -2084,7 +2084,7 @@
     "m_DefaultRefNameVersion": 0,
     "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_88b8bf6c68264dd3b2f45e113b9ac1ce",
-    "m_OverrideReferenceName": "FogColor",
+    "m_OverrideReferenceName": "_FogColor",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",

@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public event Action Finishing;
+    [HideInInspector] public float giftProgress;
     [SerializeField] private GenerationMap _generator;
     [SerializeField] private Game _game;
     [field: SerializeField] public Transform FinishPos;
 
     public GameState GameState { get; private set; }
     [field: SerializeField] public Transform UICoinPos;
+    [SerializeField] private ParticleSystem _conffetti;
     private UiManager _uiManager;
     private void Awake()
     {
@@ -29,14 +31,15 @@ public class GameManager : MonoBehaviour
     public void Finish()
     {
         if (GameState == GameState.Finish) return;
-        _game.SaveData(_generator.Seed, true);
+        SaveData();
         Finishing?.Invoke();
         SetstateGame(GameState.Finish);
+        _conffetti.Play();
     }
 
     public void Lose()
     {
-        _game.SaveData(_generator.Seed, false);
+        SaveData();
         SceneManager.LoadScene("LoadScene");
     }
 
@@ -54,13 +57,18 @@ public class GameManager : MonoBehaviour
         else if (buttonState == ButtonState.Exit) Application.Quit();
         else if (buttonState == ButtonState.Pause) PauseGame();
     }
+
     private void SetstateGame(GameState gameState)
     {
         GameState = gameState;
     }
+
+    public void SaveData()
+    {
+        _game.SaveData(_generator.Seed, true, giftProgress);
+    }
     public (bool, int) LoadData()
     {
-        _game.LoadData();
         return (_game.IsRandomGeneration, _game.Seed);
     }
 }

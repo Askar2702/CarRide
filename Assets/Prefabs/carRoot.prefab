@@ -42,10 +42,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.7
   m_SuspensionSpring:
-    spring: 20883.633
-    damper: 1670.6904
+    spring: 20883.637
+    damper: 1670.691
     targetPosition: 0.5
-  m_SuspensionDistance: 0.78479993
+  m_SuspensionDistance: 0.78480005
   m_ForceAppPointDistance: 1.8601388
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -153,9 +153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fourWheelDrive: 1
   isMobileInput: 1
-  maxAngle: 30
-  maxTorque: 1500
-  wheelShape: {fileID: 6260388483884636, guid: 6e5dc9ab05e77c74cb6d284b0462ea3b, type: 3}
+  _maxAngle: 30
+  _maxTorque: 10000
+  _maxSpeed: 2000
+  _wheelShape: {fileID: 6260388483884636, guid: 6e5dc9ab05e77c74cb6d284b0462ea3b, type: 3}
 --- !u!114 &7576874053082451547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bba8e8ae8525194291ab53a633628d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakForse: 0
+  _breakForse: 2000
   _lights: []
   _carSound: {fileID: 7760152588504829239}
 --- !u!114 &7760152588504829239
@@ -435,10 +436,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.7
   m_SuspensionSpring:
-    spring: 16616.373
-    damper: 1329.3099
+    spring: 16616.365
+    damper: 1329.3092
     targetPosition: 0.5
-  m_SuspensionDistance: 0.7848
+  m_SuspensionDistance: 0.78479993
   m_ForceAppPointDistance: 1.8601388
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -528,10 +529,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.7
   m_SuspensionSpring:
-    spring: 20883.633
-    damper: 1670.6907
+    spring: 20883.637
+    damper: 1670.691
     targetPosition: 0.5
-  m_SuspensionDistance: 0.7848
+  m_SuspensionDistance: 0.78480005
   m_ForceAppPointDistance: 1.8601388
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -590,10 +591,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.7
   m_SuspensionSpring:
-    spring: 16616.373
-    damper: 1329.3099
+    spring: 16616.365
+    damper: 1329.3093
     targetPosition: 0.5
-  m_SuspensionDistance: 0.7848
+  m_SuspensionDistance: 0.78480005
   m_ForceAppPointDistance: 1.8601388
   m_Mass: 20
   m_WheelDampingRate: 0.25

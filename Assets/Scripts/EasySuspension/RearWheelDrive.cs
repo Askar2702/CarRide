@@ -7,11 +7,13 @@ public class RearWheelDrive : MonoBehaviour
 
     [SerializeField] private bool fourWheelDrive;
     [SerializeField] private bool isMobileInput;
-    public float maxAngle = 30;
-    public float maxTorque = 300;
-    public GameObject wheelShape;
+    [SerializeField] private float _maxAngle = 30;
+    [SerializeField] private float _maxTorque = 1500;
 
-    private WheelCollider[] wheels;
+    [SerializeField] private float _maxSpeed;
+    [SerializeField] private GameObject _wheelShape;
+
+    private WheelCollider[] _wheels;
     private CarController _carController;
 
     float _angle = 0;
@@ -20,17 +22,17 @@ public class RearWheelDrive : MonoBehaviour
     // here we find all the WheelColliders down in the hierarchy
     public void Start()
     {
-        wheels = GetComponentsInChildren<WheelCollider>();
+        _wheels = GetComponentsInChildren<WheelCollider>();
         _carController = GetComponent<CarController>();
 
-        for (int i = 0; i < wheels.Length; ++i)
+        for (int i = 0; i < _wheels.Length; ++i)
         {
-            var wheel = wheels[i];
+            var wheel = _wheels[i];
 
             // create wheel shapes only when needed
-            if (wheelShape != null)
+            if (_wheelShape != null)
             {
-                var ws = GameObject.Instantiate(wheelShape);
+                var ws = GameObject.Instantiate(_wheelShape);
                 ws.transform.parent = wheel.transform;
 
                 if (wheel.transform.localPosition.x < 0f)
@@ -46,26 +48,25 @@ public class RearWheelDrive : MonoBehaviour
     // this helps us to figure our which wheels are front ones and which are rear
     public void Update()
     {
-        if (GameManager.instance.GameState == GameState.Play)
+        // if (GameManager.instance.GameState == GameState.Play)
         {
             if (!isMobileInput)
             {
-                _angle = maxAngle * Input.GetAxis("Horizontal");
-                _torque = maxTorque * Input.GetAxis("Vertical");
+                _angle = _maxAngle * Input.GetAxis("Horizontal");
+                _torque = Mathf.Clamp(_maxTorque * Input.GetAxis("Vertical"), -_maxSpeed, _maxSpeed);
             }
             else
             {
-                _angle = maxAngle * _carController.Horizontal;
-                _torque = maxTorque * _carController.Vertical;
+                _angle = _maxAngle * _carController.Horizontal;
+                _torque = Mathf.Clamp(_maxTorque * _carController.Vertical, -_maxSpeed, _maxSpeed);
             }
         }
-        else if (GameManager.instance.GameState == GameState.Finish)
+        if (GameManager.instance.GameState == GameState.Finish)
         {
-            _angle = maxAngle * 1;
-            _torque = maxTorque * 0;
+            _angle = _maxAngle * 1;
         }
 
-        foreach (WheelCollider wheel in wheels)
+        foreach (WheelCollider wheel in _wheels)
         {
             // a simple car where front wheels steer while rear ones drive
             if (wheel.transform.localPosition.z > 0)
@@ -79,7 +80,7 @@ public class RearWheelDrive : MonoBehaviour
             }
 
             // update visual wheels if any
-            if (wheelShape)
+            if (_wheelShape)
             {
                 Quaternion q;
                 Vector3 p;
@@ -93,7 +94,7 @@ public class RearWheelDrive : MonoBehaviour
 
         }
 
-        foreach (WheelCollider wheel in wheels)
+        foreach (WheelCollider wheel in _wheels)
         {
             wheel.brakeTorque = _carController.CurrentBreakForse;
         }
