@@ -16,6 +16,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private RectTransform _centerPos;
     [SerializeField] private GameObject _iconPause;
     [SerializeField] private GameObject _iconPlay;
+    [SerializeField] private GameObject _iconSoundPause;
+    [SerializeField] private GameObject _iconSoundPlay;
     [SerializeField] private TextMeshProUGUI _coinText;
     private int _coinAmount;
     #endregion
@@ -23,22 +25,30 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Button _start;
     [SerializeField] private Button _exit;
     [SerializeField] private Button _nextGame;
-    [SerializeField] private Button _restart;
+    [SerializeField] private Button[] _restart;
     [SerializeField] private Button _pause;
+    [SerializeField] private Button _setSound;
     #endregion
 
     [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
 
     [SerializeField] private Animation _anim;
+    private CarController _car;
     private void Awake()
     {
         if (!instance) instance = this;
         _start.onClick.AddListener(StartGame);
         _nextGame.onClick.AddListener(() => NextGame());
         _exit.onClick.AddListener(() => ExitGame());
-        _restart.onClick.AddListener(() => RestartGame());
+        foreach (var item in _restart)
+        {
+            item.onClick.AddListener(() => RestartGame());
+        }
+
         _pause.onClick.AddListener(() => PauseGame());
+        _setSound.onClick.AddListener(() => EnableSound());
+        _car = FindObjectOfType<CarController>();
     }
 
     private void Start()
@@ -58,12 +68,10 @@ public class UiManager : MonoBehaviour
     {
         Act?.Invoke(ButtonState.Restart);
         Time.timeScale = 1;
-        AudioListener.pause = false;
     }
     private void ExitGame()
     {
         Time.timeScale = 1;
-        AudioListener.pause = false;
         Act?.Invoke(ButtonState.Exit);
     }
 
@@ -75,13 +83,13 @@ public class UiManager : MonoBehaviour
         {
             SetPosPanel(_centerPos);
             _start.gameObject.SetActive(false);
-            _nextGame.gameObject.SetActive(false);
-            _restart.gameObject.SetActive(true);
+            _restart[0].gameObject.SetActive(true);
             _iconPause.SetActive(false);
             _iconPlay.SetActive(true);
             _exit.gameObject.SetActive(true);
+            _setSound.gameObject.SetActive(true);
             Time.timeScale = 0;
-            AudioListener.pause = true;
+            _car.SetEnableAudio(false);
         }
         else if (_panel.anchoredPosition != _UpPos.anchoredPosition)
         {
@@ -89,7 +97,23 @@ public class UiManager : MonoBehaviour
             _iconPause.SetActive(true);
             _iconPlay.SetActive(false);
             Time.timeScale = 1;
+            _car.SetEnableAudio(true);
+        }
+    }
+
+    private void EnableSound()
+    {
+        if (AudioListener.pause)
+        {
             AudioListener.pause = false;
+            _iconSoundPause.SetActive(false);
+            _iconSoundPlay.SetActive(true);
+        }
+        else
+        {
+            AudioListener.pause = true;
+            _iconSoundPause.SetActive(true);
+            _iconSoundPlay.SetActive(false);
         }
     }
 
@@ -97,8 +121,7 @@ public class UiManager : MonoBehaviour
     {
         SetPosPanel(_centerPos);
         _start.gameObject.SetActive(false);
-        _nextGame.gameObject.SetActive(true);
-        _restart.gameObject.SetActive(false);
+        _restart[0].gameObject.SetActive(true);
         _exit.gameObject.SetActive(true);
     }
 

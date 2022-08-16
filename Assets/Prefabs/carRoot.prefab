@@ -169,9 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bba8e8ae8525194291ab53a633628d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakForse: 2000
   _lights: []
   _carSound: {fileID: 7760152588504829239}
+  _audioSources:
+  - {fileID: 6005401828792644042}
+  - {fileID: 6805995626144862308}
 --- !u!114 &7760152588504829239
 MonoBehaviour:
   m_ObjectHideFlags: 0

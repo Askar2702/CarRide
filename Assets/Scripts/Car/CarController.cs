@@ -18,6 +18,7 @@ public class CarController : MonoBehaviour
     public float CurrentBreakForse { get; private set; }
     [SerializeField] private Light[] _lights;
     [SerializeField] private CarSound _carSound;
+    [SerializeField] private AudioSource[] _audioSources;
 
     private Transform _road;
     public void SetSteer(float s)
@@ -92,5 +93,13 @@ public class CarController : MonoBehaviour
     {
         CurrentBreakForse = activ ? _breakForse : 0;
         foreach (var l in _lights) l.gameObject.SetActive(activ);
+    }
+
+    public void SetEnableAudio(bool activ)
+    {
+        foreach (var item in _audioSources)
+        {
+            item.enabled = activ;
+        }
     }
 }
