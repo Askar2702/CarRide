@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     public event Action<ButtonState> Act;
     #region UI
     [SerializeField] private RectTransform _panel;
+    [SerializeField] private RectTransform _panelFinish;
     [SerializeField] private RectTransform _UpPos;
     [SerializeField] private RectTransform _centerPos;
     [SerializeField] private GameObject _iconPause;
@@ -19,7 +20,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject _iconSoundPause;
     [SerializeField] private GameObject _iconSoundPlay;
     [SerializeField] private TextMeshProUGUI _coinText;
-    private int _coinAmount;
+    public int CoinAmount { get; private set; }
     #endregion
     #region UI Button
     [SerializeField] private Button _start;
@@ -35,6 +36,7 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] private Animation _anim;
     private CarController _car;
+    private Game _game;
     private void Awake()
     {
         if (!instance) instance = this;
@@ -49,11 +51,13 @@ public class UiManager : MonoBehaviour
         _pause.onClick.AddListener(() => PauseGame());
         _setSound.onClick.AddListener(() => EnableSound());
         _car = FindObjectOfType<CarController>();
+        _game = GetComponent<Game>();
     }
 
     private void Start()
     {
-        GameManager.instance.Finishing += ShowPanel;
+        GameManager.instance.Finishing.AddListener(ShowFinishPanel);
+        LoadSoundSetting();
     }
     private void StartGame()
     {
@@ -106,23 +110,37 @@ public class UiManager : MonoBehaviour
         if (AudioListener.pause)
         {
             AudioListener.pause = false;
+            _game.IsSound = false;
             _iconSoundPause.SetActive(false);
             _iconSoundPlay.SetActive(true);
         }
         else
         {
             AudioListener.pause = true;
+            _game.IsSound = true;
             _iconSoundPause.SetActive(true);
             _iconSoundPlay.SetActive(false);
         }
     }
-
-    public void ShowPanel()
+    private void LoadSoundSetting()
     {
-        SetPosPanel(_centerPos);
-        _start.gameObject.SetActive(false);
-        _restart[0].gameObject.SetActive(true);
-        _exit.gameObject.SetActive(true);
+        if (_game.IsSound)
+        {
+            AudioListener.pause = true;
+            _iconSoundPause.SetActive(true);
+            _iconSoundPlay.SetActive(false);
+        }
+        else
+        {
+            AudioListener.pause = false;
+            _iconSoundPause.SetActive(false);
+            _iconSoundPlay.SetActive(true);
+        }
+    }
+
+    public void ShowFinishPanel()
+    {
+        _panelFinish.DOAnchorPos(_centerPos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
     }
 
     private void SetPosPanel(RectTransform pos)
@@ -133,8 +151,8 @@ public class UiManager : MonoBehaviour
 
     public void CoinAdd()
     {
-        _coinAmount++;
-        _coinText.text = _coinAmount.ToString();
+        CoinAmount++;
+        _coinText.text = CoinAmount.ToString();
         _anim.Play();
     }
 }

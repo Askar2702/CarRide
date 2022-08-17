@@ -22,7 +22,7 @@ public class GenerationMap : MonoBehaviour
     public float lacunarity;
 
     [field: SerializeField] public int Seed { get; private set; }
-    public Vector2 offset;
+    [field: SerializeField] public Vector2 Offset { get; private set; }
 
     public float meshHeightMultiplier;
     [SerializeField] private AnimationCurve _meshHeightCurve;
@@ -42,7 +42,7 @@ public class GenerationMap : MonoBehaviour
     }
     public void GenerateMap()
     {
-        float[,] noiseMap = Noise.GenerateNoiseMap(_xSize, _zSize, Seed, noiseScale, octaves, persistance, lacunarity, offset);
+        float[,] noiseMap = Noise.GenerateNoiseMap(_xSize, _zSize, Seed, noiseScale, octaves, persistance, lacunarity, Offset);
 
         Color[] colourMap = new Color[_xSize * _zSize];
         for (int y = 0; y < _zSize; y++)
@@ -96,7 +96,7 @@ public class GenerationMap : MonoBehaviour
         if (_isRandom)
         {
             Seed = Random.Range(0, 10000);
-            offset = new Vector2(Random.Range(0, 10000), (Random.Range(0, 10000)));
+            Offset = new Vector2(Random.Range(0, 10000), (Random.Range(0, 10000)));
         }
     }
 
@@ -105,6 +105,7 @@ public class GenerationMap : MonoBehaviour
         var load = GameManager.instance.LoadData();
         _isRandom = load.Item1;
         Seed = load.Item2;
+        Offset = load.Item3;
     }
 }
 

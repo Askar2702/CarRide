@@ -4,33 +4,101 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    public int Seed { get; private set; }
-    public bool IsRandomGeneration { get; private set; }
-    public float giftProgress { get; private set; }
+    private int _seed;
+    private bool _isRandomGeneration;
+    private float _giftProgress;
+    private Vector2 _roadOffset;
+    private bool _isSound;
 
+    public int Seed
+    {
+        get
+        { return _seed; }
+        set
+        {
+            if (_seed != value)
+            {
+                _seed = value;
+                SaveData();
+            }
+        }
+    }
+
+    public bool IsRandomGeneration
+    {
+        get
+        {
+            return _isRandomGeneration;
+        }
+        set
+        {
+            if (_isRandomGeneration != value)
+            {
+                _isRandomGeneration = value;
+                SaveData();
+            }
+        }
+    }
+
+    public float GiftProgress
+    {
+        get
+        {
+            return _giftProgress;
+        }
+        set
+        {
+            if (_giftProgress != value)
+            {
+                _giftProgress = value;
+                SaveData();
+            }
+        }
+    }
+
+    public Vector2 RoadOffset => _roadOffset;
+    public bool IsSound
+    {
+        get
+        {
+            return _isSound;
+        }
+        set
+        {
+            if (_isSound != value)
+            {
+                _isSound = value;
+                SaveData();
+            }
+        }
+    }
     private void Awake()
     {
         LoadData();
     }
-    public void SaveData(int seed, bool isRandom, float progress)
+    private void SaveData()
     {
-        Seed = seed;
-        IsRandomGeneration = isRandom;
-        giftProgress = progress;
         SaveSystem.SaveData(this);
     }
-    public void LoadData()
+    private void LoadData()
     {
         GameData data = SaveSystem.LoadData();
         if (data == null)
         {
-            Seed = 0;
+            _seed = 0;
             IsRandomGeneration = true;
             return;
         }
-        Seed = data._seedRoad;
-        IsRandomGeneration = data.isRandom;
-        giftProgress = data.giftProgress;
+        _seed = data._seedRoad;
+        _isRandomGeneration = data.isRandom;
+        _giftProgress = data.giftProgress;
+        _roadOffset = new Vector2(data.X, data.Y);
+        _isSound = data.IsSound;
+    }
 
+    public void SetRoadOffset(Vector2 offset)
+    {
+        _roadOffset = offset;
+        SaveData();
     }
 }

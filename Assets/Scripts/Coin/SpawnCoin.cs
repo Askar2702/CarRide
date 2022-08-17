@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCoin : MonoBehaviour
 {
-    [SerializeField] private int _count;
+    public int CountCoins { get; private set; }
     [SerializeField] private float _distance;
     [SerializeField] private Coin _coin;
     [SerializeField] private Transform _parent;
@@ -15,12 +15,11 @@ public class SpawnCoin : MonoBehaviour
     private void Awake()
     {
         _sides = new float[] { 0f, -5f, 5f };
-    }
-    private void Start()
-    {
         _currentCoin = 0;
+        CountCoins = 0;
         _lastPos = transform.position;
     }
+
     public void Spawn(Vector3 pos)
     {
         var p = new Vector3((pos.x * 1.5f) + _side, (pos.y * 1.3f) + 3f, pos.z * 1.5f);
@@ -29,6 +28,7 @@ public class SpawnCoin : MonoBehaviour
         {
             var coin = Instantiate(_coin, p, Quaternion.identity);
             _currentCoin++;
+            CountCoins++;
             _lastPos = p;
             coin.transform.parent = _parent;
         }

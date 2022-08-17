@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System;
 [RequireComponent(typeof(UiManager))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public event Action Finishing;
-    [HideInInspector] public float giftProgress;
+    public UnityEvent Finishing;
     [SerializeField] private GenerationMap _generator;
     [SerializeField] private Game _game;
     [field: SerializeField] public Transform FinishPos;
@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public void Finish()
     {
         if (GameState == GameState.Finish) return;
-        SaveData();
         Finishing?.Invoke();
         SetstateGame(GameState.Finish);
         _conffetti.Play();
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
-        SaveData();
+        SaveData(false);
         SceneManager.LoadScene("LoadScene");
     }
 
@@ -63,12 +62,14 @@ public class GameManager : MonoBehaviour
         GameState = gameState;
     }
 
-    public void SaveData()
+    public void SaveData(bool activ)
     {
-        _game.SaveData(_generator.Seed, true, giftProgress);
+        _game.Seed = _generator.Seed;
+        _game.IsRandomGeneration = activ;
+        _game.SetRoadOffset(_generator.Offset);
     }
-    public (bool, int) LoadData()
+    public (bool, int, Vector2) LoadData()
     {
-        return (_game.IsRandomGeneration, _game.Seed);
+        return (_game.IsRandomGeneration, _game.Seed, _game.RoadOffset);
     }
 }
