@@ -13,7 +13,11 @@ public class SteeringWheelControl : MonoBehaviour, IDragHandler, IPointerDownHan
     [SerializeField] private float _maxSteerAngle = 200f;
     [SerializeField] private float _releaseSpeed = 300f;
     public float OutPut;
-    [SerializeField] private CarController _car;
+    private CarController _car;
+    private void Start()
+    {
+        _car = FindObjectOfType<CarController>();
+    }
     void Update()
     {
         if (!_wheelbeingheld && _wheelAngle != 0f)

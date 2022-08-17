@@ -38,7 +38,6 @@ public class CarController : MonoBehaviour
         {
             Move();
             if (transform.position.y < -100f) GameManager.instance.Lose();
-            //            SliceManager.instance.GetClosestRoad(this.transform);
         }
         else if (GameManager.instance.GameState == GameState.Finish)
         {

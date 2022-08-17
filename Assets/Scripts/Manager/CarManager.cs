@@ -20,5 +20,12 @@ public class CarManager : MonoBehaviour
     {
         _sliderBarDistance.value = _car.transform.position.z;
     }
-
+    public void MoveForward(int i)
+    {
+        _car.MoveForward(i);
+    }
+    public void ApplyBreaking(bool activ)
+    {
+        _car.ApplyBreaking(activ);
+    }
 }
