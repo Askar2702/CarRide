@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175b12bcde378bb4cbad67dba79ac5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CountOpencars: 2
   _leftPos: {fileID: 1374692673}
   _panelShop: {fileID: 687485124}
   _btnShowShop: {fileID: 1441386316}
@@ -1034,6 +1035,7 @@ GameObject:
   - component: {fileID: 194992521}
   - component: {fileID: 194992520}
   - component: {fileID: 194992519}
+  - component: {fileID: 194992522}
   m_Layer: 5
   m_Name: Car (1)
   m_TagString: Untagged
@@ -1108,7 +1110,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 194992520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &194992520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1161,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194992517}
   m_CullTransparentMesh: 1
+--- !u!114 &194992522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194992517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 30
+  _id: 1
+  _priceParent: {fileID: 1350163229}
+  _priceText: {fileID: 533690593}
+  _hideImages:
+  - {fileID: 1302215238}
+  - {fileID: 670477035}
 --- !u!1 &213497816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1403,7 @@ GameObject:
   - component: {fileID: 220178957}
   - component: {fileID: 220178956}
   - component: {fileID: 220178955}
+  - component: {fileID: 220178958}
   m_Layer: 5
   m_Name: Car (2)
   m_TagString: Untagged
@@ -1444,7 +1478,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 220178956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &220178956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1529,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220178953}
   m_CullTransparentMesh: 1
+--- !u!114 &220178958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220178953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 30
+  _id: 2
+  _priceParent: {fileID: 1923549099}
+  _priceText: {fileID: 728596098}
+  _hideImages:
+  - {fileID: 1265905365}
+  - {fileID: 278350483}
 --- !u!1 &234690413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1825,7 @@ GameObject:
   - component: {fileID: 343152570}
   - component: {fileID: 343152569}
   - component: {fileID: 343152568}
+  - component: {fileID: 343152571}
   m_Layer: 5
   m_Name: Car (6)
   m_TagString: Untagged
@@ -1834,7 +1900,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 343152569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343152569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,6 +1951,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343152566}
   m_CullTransparentMesh: 1
+--- !u!114 &343152571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343152566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 44
+  _id: 6
+  _priceParent: {fileID: 171925550}
+  _priceText: {fileID: 1869426499}
+  _hideImages:
+  - {fileID: 1337811007}
+  - {fileID: 541027506}
 --- !u!1 &350834996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,7 +2444,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3392,6 +3489,7 @@ GameObject:
   - component: {fileID: 626806410}
   - component: {fileID: 626806409}
   - component: {fileID: 626806408}
+  - component: {fileID: 626806411}
   m_Layer: 5
   m_Name: Car
   m_TagString: Untagged
@@ -3463,7 +3561,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 626806409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &626806409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,6 +3612,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626806406}
   m_CullTransparentMesh: 1
+--- !u!114 &626806411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626806406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 0
+  _id: 0
+  _priceParent: {fileID: 0}
+  _priceText: {fileID: 0}
+  _hideImages: []
 --- !u!1 &653135186
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,6 +3641,7 @@ GameObject:
   - component: {fileID: 653135190}
   - component: {fileID: 653135189}
   - component: {fileID: 653135188}
+  - component: {fileID: 653135191}
   m_Layer: 5
   m_Name: Car (3)
   m_TagString: Untagged
@@ -3588,7 +3716,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 653135189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &653135189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,6 +3767,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653135186}
   m_CullTransparentMesh: 1
+--- !u!114 &653135191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653135186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 33
+  _id: 3
+  _priceParent: {fileID: 1940112580}
+  _priceText: {fileID: 727817573}
+  _hideImages:
+  - {fileID: 994844314}
+  - {fileID: 1856703632}
 --- !u!1 &663335700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,6 +3798,7 @@ GameObject:
   - component: {fileID: 663335704}
   - component: {fileID: 663335703}
   - component: {fileID: 663335702}
+  - component: {fileID: 663335705}
   m_Layer: 5
   m_Name: Car (7)
   m_TagString: Untagged
@@ -3713,7 +3873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 663335703}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &663335703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3752,6 +3924,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663335700}
   m_CullTransparentMesh: 1
+--- !u!114 &663335705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663335700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 33
+  _id: 7
+  _priceParent: {fileID: 875463945}
+  _priceText: {fileID: 865807991}
+  _hideImages:
+  - {fileID: 2139233775}
+  - {fileID: 60850749}
 --- !u!1 &670477035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8632,7 +8823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0}
+  m_AnchoredPosition: {x: -9.999939, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1441386317
@@ -8678,7 +8869,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1441386318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1441386318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8760,6 +8963,7 @@ GameObject:
   - component: {fileID: 1498031651}
   - component: {fileID: 1498031650}
   - component: {fileID: 1498031649}
+  - component: {fileID: 1498031652}
   m_Layer: 5
   m_Name: Car (5)
   m_TagString: Untagged
@@ -8834,7 +9038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1498031650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1498031650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8873,6 +9089,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498031647}
   m_CullTransparentMesh: 1
+--- !u!114 &1498031652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498031647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 43
+  _id: 5
+  _priceParent: {fileID: 857388002}
+  _priceText: {fileID: 1257880239}
+  _hideImages:
+  - {fileID: 1802341935}
+  - {fileID: 1341498230}
 --- !u!1 &1498945820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,6 +10496,7 @@ GameObject:
   - component: {fileID: 1675758827}
   - component: {fileID: 1675758826}
   - component: {fileID: 1675758825}
+  - component: {fileID: 1675758828}
   m_Layer: 5
   m_Name: Car (4)
   m_TagString: Untagged
@@ -10335,7 +10571,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1675758826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1675758826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10374,6 +10622,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675758823}
   m_CullTransparentMesh: 1
+--- !u!114 &1675758828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675758823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 23
+  _id: 4
+  _priceParent: {fileID: 1292018306}
+  _priceText: {fileID: 1112906689}
+  _hideImages:
+  - {fileID: 1012739554}
+  - {fileID: 994492499}
 --- !u!1 &1681013930
 GameObject:
   m_ObjectHideFlags: 0
@@ -12092,7 +12359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1997634025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411850564}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1997634025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12146,11 +12425,11 @@ RectTransform:
   m_Father: {fileID: 687485124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1720, y: -150}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -150}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &2044907304
 GameObject:
   m_ObjectHideFlags: 0

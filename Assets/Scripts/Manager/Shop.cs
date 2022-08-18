@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class Shop : MonoBehaviour
 {
+    public static Shop instance;
+    public int CountOpencars;
     [SerializeField] private RectTransform _leftPos;
     [SerializeField] private RectTransform _panelShop;
     [SerializeField] private RectTransform _btnShowShop;
@@ -15,6 +17,7 @@ public class Shop : MonoBehaviour
 
     private void Awake()
     {
+        if (!instance) instance = this;
         _btnShowShop.GetComponent<Button>().onClick.AddListener(ShowPanel);
         _btnClose.onClick.AddListener(CloseShop);
     }
