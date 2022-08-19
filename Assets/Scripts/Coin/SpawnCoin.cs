@@ -6,12 +6,13 @@ public class SpawnCoin : MonoBehaviour
 {
     public int CountCoins { get; private set; }
     [SerializeField] private float _distance;
-    [SerializeField] private Coin _coin;
+    [SerializeField] private Score[] _coins;
     [SerializeField] private Transform _parent;
     private Vector3 _lastPos;
     private int _currentCoin;
     private float[] _sides;
     private float _side;
+    private float _chanse = 95f;
     private void Awake()
     {
         _sides = new float[] { 0f, -5f, 5f };
@@ -23,10 +24,11 @@ public class SpawnCoin : MonoBehaviour
     public void Spawn(Vector3 pos)
     {
         var p = new Vector3((pos.x * 1.5f) + _side, (pos.y * 1.3f) + 3f, pos.z * 1.5f);
-
+        int i = 0;
+        if (Random.Range(0, 100) > _chanse) i = 1;
         if (_currentCoin <= 3)
         {
-            var coin = Instantiate(_coin, p, Quaternion.identity);
+            var coin = Instantiate(_coins[i], p, Quaternion.identity);
             _currentCoin++;
             CountCoins++;
             _lastPos = p;

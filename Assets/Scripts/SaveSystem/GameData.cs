@@ -11,6 +11,8 @@ public class GameData
     public float X;
     public float Y;
     public bool IsSound;
+    public int CountOpenCar;
+    public int CountGem;
     public GameData(Game data)
     {
         _seedRoad = data.Seed;
@@ -19,6 +21,8 @@ public class GameData
         X = data.RoadOffset[0];
         Y = data.RoadOffset[1];
         IsSound = data.IsSound;
+        CountOpenCar = data.CountOpenCar;
+        CountGem = data.CountGem;
     }
 
 

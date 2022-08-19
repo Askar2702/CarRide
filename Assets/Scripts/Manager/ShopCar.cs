@@ -10,10 +10,18 @@ public class ShopCar : MonoBehaviour
     [SerializeField] private GameObject _priceParent;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private GameObject[] _hideImages;
+    private Game _game;
+
     void Start()
     {
+        _game = FindObjectOfType<Game>();
+        Shop.instance.ShowIngo.AddListener(UpdateInfo);
+    }
+
+    private void UpdateInfo()
+    {
         if (_id == 0) return;
-        if (Shop.instance.CountOpencars >= _id)
+        if (_game.CountOpenCar >= _id)
         {
             _priceParent.SetActive(true);
             foreach (var item in _hideImages)

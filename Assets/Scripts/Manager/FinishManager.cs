@@ -12,16 +12,24 @@ public class FinishManager : MonoBehaviour
     [SerializeField] private Game _game;
     [SerializeField] private Transform[] _stars;
     [SerializeField] private TextMeshProUGUI _coins;
-    [SerializeField] private float _time;
+    [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
-    [SerializeField] private Image _gift;
-    [SerializeField] private Image _giftCar;
+    [SerializeField] private Sprite[] _carImages;
+    [SerializeField] private Gift _gift;
     private SpawnCoin _spawnCoin;
+
+    #region Timer
+    [SerializeField] private TextMeshProUGUI _timer;
+    [SerializeField] private TextMeshProUGUI _finishTimer;
+    private int _minute;
+    private int _secund;
+    #endregion
     private void Start()
     {
         _spawnCoin = FindObjectOfType<SpawnCoin>();
-        _gift.fillAmount = _game.GiftProgress;
         GameManager.instance.Finishing.AddListener(CheckProgressPlayer);
+        _coins.text = $"{_spawnCoin.CountCoins} / {UiManager.instance.CoinAmount.ToString()}";
+        StartCoroutine(TimerGame());
     }
 
     private async void CheckProgressPlayer()
@@ -30,27 +38,41 @@ public class FinishManager : MonoBehaviour
         var count = CheckCoins();
         for (int i = 0; i < count; i++)
         {
-            await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _time).SetEase(_ease).AsyncWaitForCompletion();
+            await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _speed).SetEase(_ease).AsyncWaitForCompletion();
         }
-        await _gift.DOFillAmount(_gift.fillAmount + 0.25f, _time).AsyncWaitForCompletion();
-        if (_gift.fillAmount >= 1f)
-        {
-            _giftCar.gameObject.SetActive(true);
-            _gift.fillAmount = 0;
-            _gift.transform.parent.gameObject.SetActive(false);
-            _giftCar.transform.DOScale(new Vector3(1f, 1f, 1f), _time).SetEase(_ease);
-        }
-        _game.GiftProgress = _gift.fillAmount;
+        _gift.ShowGift(_carImages[_game.CountOpenCar]);
     }
 
     private int CheckCoins()
     {
         int count = 0;
-        _coins.text = UiManager.instance.CoinAmount.ToString();
+        _coins.text = $"{_spawnCoin.CountCoins} / {UiManager.instance.CoinAmount.ToString()}";
         if (UiManager.instance.CoinAmount == 0) return 0;
         if (_spawnCoin.CountCoins == UiManager.instance.CoinAmount) count = _stars.Length;
         else if ((UiManager.instance.CoinAmount) >= (_spawnCoin.CountCoins / 2)) count = _stars.Length - 1;
         else if ((UiManager.instance.CoinAmount) < (_spawnCoin.CountCoins / 2)) count = _stars.Length - 2;
         return count;
+    }
+
+    IEnumerator TimerGame()
+    {
+        var time = 0f;
+        bool isStop = false;
+        while (!isStop)
+        {
+            if (GameManager.instance.GameState == GameState.Play)
+            {
+                time += Time.deltaTime;
+                _secund = (int)(time % 60f);
+                _minute = (int)(time / 60 % 60f);
+                _timer.text = string.Format("{0:00}:{1:00}", _minute, _secund);
+            }
+            if (GameManager.instance.GameState == GameState.Finish)
+            {
+                _finishTimer.text = string.Format("{0:00}:{1:00}", _minute, _secund);
+                isStop = true;
+            }
+            yield return null;
+        }
     }
 }

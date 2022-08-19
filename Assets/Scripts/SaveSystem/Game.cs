@@ -10,6 +10,10 @@ public class Game : MonoBehaviour
     private Vector2 _roadOffset;
     private bool _isSound;
 
+    private int _countOpenCar;
+    public int maxCarCount => MAXCARCOUNT;
+    private const int MAXCARCOUNT = 7;
+    private int _countGem;
     public int Seed
     {
         get
@@ -72,10 +76,48 @@ public class Game : MonoBehaviour
             }
         }
     }
+
+
+    public int CountOpenCar
+    {
+        get
+        {
+            return _countOpenCar;
+        }
+        set
+        {
+            if (_countOpenCar != value && value <= MAXCARCOUNT)
+            {
+                _countOpenCar = value;
+                SaveData();
+            }
+        }
+    }
+
+    public int CountGem
+    {
+        get
+        {
+            return _countGem;
+        }
+        set
+        {
+            if (_countGem != value)
+            {
+                _countGem = value;
+                SaveData();
+            }
+        }
+    }
+
+
     private void Awake()
     {
         LoadData();
+        //   print(Application.persistentDataPath);
     }
+
+
     private void SaveData()
     {
         SaveSystem.SaveData(this);
@@ -94,6 +136,8 @@ public class Game : MonoBehaviour
         _giftProgress = data.giftProgress;
         _roadOffset = new Vector2(data.X, data.Y);
         _isSound = data.IsSound;
+        _countOpenCar = data.CountOpenCar;
+        _countGem = data.CountGem;
     }
 
     public void SetRoadOffset(Vector2 offset)

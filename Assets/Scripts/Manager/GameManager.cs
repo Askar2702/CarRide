@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get; private set; }
     [field: SerializeField] public Transform UICoinPos;
     [SerializeField] private ParticleSystem _conffetti;
+    [SerializeField] private AudioClip _audioFinish;
+    [SerializeField] private AudioSource _audioSource;
     private UiManager _uiManager;
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         Finishing?.Invoke();
         SetstateGame(GameState.Finish);
         _conffetti.Play();
+        _audioSource.PlayOneShot(_audioFinish);
     }
 
     public void Lose()

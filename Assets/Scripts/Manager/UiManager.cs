@@ -122,6 +122,7 @@ public class UiManager : MonoBehaviour
             _iconSoundPlay.SetActive(false);
         }
     }
+
     private void LoadSoundSetting()
     {
         if (_game.IsSound)
