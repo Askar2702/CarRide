@@ -192,6 +192,7 @@ MonoBehaviour:
   _maxPitch: 1.8
   _minPitch: 1
   _coinSong: {fileID: 8300000, guid: 5348493735905394eb9cda6455b29f1e, type: 3}
+  _gemSong: {fileID: 8300000, guid: bb3eb02371592824d9e617da7c5e0eda, type: 3}
 --- !u!82 &6005401828792644042
 AudioSource:
   m_ObjectHideFlags: 0

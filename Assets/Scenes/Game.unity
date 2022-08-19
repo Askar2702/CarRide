@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 30
+  _price: 25
   _id: 1
   _priceParent: {fileID: 1350163229}
   _priceText: {fileID: 533690593}
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 30
+  _price: 23
   _id: 2
   _priceParent: {fileID: 1923549099}
   _priceText: {fileID: 728596098}
@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 44
+  _price: 28
   _id: 6
   _priceParent: {fileID: 171925550}
   _priceText: {fileID: 1869426499}
@@ -4035,7 +4035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 33
+  _price: 27
   _id: 3
   _priceParent: {fileID: 1940112580}
   _priceText: {fileID: 727817573}
@@ -4192,7 +4192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 33
+  _price: 36
   _id: 7
   _priceParent: {fileID: 875463945}
   _priceText: {fileID: 865807991}
@@ -8203,7 +8203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0fb8f0a5de3f247c19c5f9e8d1696b79, type: 2}
   m_sharedMaterial: {fileID: -6164980017369850947, guid: 0fb8f0a5de3f247c19c5f9e8d1696b79, type: 2}
@@ -8975,6 +8975,9 @@ MonoBehaviour:
   _iconSoundPause: {fileID: 1562569599}
   _iconSoundPlay: {fileID: 1985423054}
   _coinText: {fileID: 1072172805}
+  _gemTexts:
+  - {fileID: 668318146}
+  - {fileID: 1282552278}
   _start: {fileID: 1008626699}
   _exit: {fileID: 2145183020}
   _nextGame: {fileID: 143776238}
@@ -8985,7 +8988,9 @@ MonoBehaviour:
   _setSound: {fileID: 213497817}
   _speed: 0.5
   _ease: 30
-  _anim: {fileID: 1072172807}
+  _anim:
+  - {fileID: 1072172807}
+  - {fileID: 1282552277}
 --- !u!4 &1411850559
 Transform:
   m_ObjectHideFlags: 0
@@ -9785,7 +9790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 43
+  _price: 35
   _id: 5
   _priceParent: {fileID: 857388002}
   _priceText: {fileID: 1257880239}
@@ -11324,7 +11329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab895a71bf3c9f545976fc78570cfab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 23
+  _price: 25
   _id: 4
   _priceParent: {fileID: 1292018306}
   _priceText: {fileID: 1112906689}

@@ -20,7 +20,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject _iconSoundPause;
     [SerializeField] private GameObject _iconSoundPlay;
     [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private TextMeshProUGUI[] _gemTexts;
     public int CoinAmount { get; private set; }
+
     #endregion
     #region UI Button
     [SerializeField] private Button _start;
@@ -34,9 +36,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
 
-    [SerializeField] private Animation _anim;
+    [SerializeField] private Animation[] _anim;
     private CarController _car;
-    private Game _game;
+
+
     private void Awake()
     {
         if (!instance) instance = this;
@@ -51,12 +54,12 @@ public class UiManager : MonoBehaviour
         _pause.onClick.AddListener(() => PauseGame());
         _setSound.onClick.AddListener(() => EnableSound());
         _car = FindObjectOfType<CarController>();
-        _game = GetComponent<Game>();
     }
 
     private void Start()
     {
         GameManager.instance.Finishing.AddListener(ShowFinishPanel);
+        AddGem(Game.instance.CountGem);
         LoadSoundSetting();
     }
     private void StartGame()
@@ -110,14 +113,14 @@ public class UiManager : MonoBehaviour
         if (AudioListener.pause)
         {
             AudioListener.pause = false;
-            _game.IsSound = false;
+            Game.instance.IsSound = false;
             _iconSoundPause.SetActive(false);
             _iconSoundPlay.SetActive(true);
         }
         else
         {
             AudioListener.pause = true;
-            _game.IsSound = true;
+            Game.instance.IsSound = true;
             _iconSoundPause.SetActive(true);
             _iconSoundPlay.SetActive(false);
         }
@@ -125,7 +128,7 @@ public class UiManager : MonoBehaviour
 
     private void LoadSoundSetting()
     {
-        if (_game.IsSound)
+        if (Game.instance.IsSound)
         {
             AudioListener.pause = true;
             _iconSoundPause.SetActive(true);
@@ -154,6 +157,15 @@ public class UiManager : MonoBehaviour
     {
         CoinAmount++;
         _coinText.text = CoinAmount.ToString();
-        _anim.Play();
+        _anim[0].Play();
+    }
+
+    public void AddGem(int i)
+    {
+        _anim[1].Play();
+        foreach (var item in _gemTexts)
+        {
+            item.text = i.ToString();
+        }
     }
 }

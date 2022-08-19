@@ -30,7 +30,8 @@ public class SpawnCoin : MonoBehaviour
         {
             var coin = Instantiate(_coins[i], p, Quaternion.identity);
             _currentCoin++;
-            CountCoins++;
+            if (i == 0)
+                CountCoins++;
             _lastPos = p;
             coin.transform.parent = _parent;
         }

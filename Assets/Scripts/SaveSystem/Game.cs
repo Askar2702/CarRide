@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public static Game instance;
     private int _seed;
     private bool _isRandomGeneration;
     private float _giftProgress;
@@ -14,6 +15,7 @@ public class Game : MonoBehaviour
     public int maxCarCount => MAXCARCOUNT;
     private const int MAXCARCOUNT = 7;
     private int _countGem;
+
     public int Seed
     {
         get
@@ -105,18 +107,19 @@ public class Game : MonoBehaviour
             if (_countGem != value)
             {
                 _countGem = value;
+                UiManager.instance.AddGem(_countGem);
                 SaveData();
             }
         }
     }
 
-
+    public List<int> ShopItems { get; private set; } = new List<int>();
     private void Awake()
     {
+        if (!instance) instance = this;
+        // print(Application.persistentDataPath);
         LoadData();
-        //   print(Application.persistentDataPath);
     }
-
 
     private void SaveData()
     {
@@ -138,11 +141,18 @@ public class Game : MonoBehaviour
         _isSound = data.IsSound;
         _countOpenCar = data.CountOpenCar;
         _countGem = data.CountGem;
+        ShopItems = data.ShopItems;
     }
 
     public void SetRoadOffset(Vector2 offset)
     {
         _roadOffset = offset;
+        SaveData();
+    }
+
+    public void SetShopItem(int item)
+    {
+        ShopItems.Add(item);
         SaveData();
     }
 }

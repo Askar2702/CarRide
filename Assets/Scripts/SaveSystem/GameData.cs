@@ -13,6 +13,7 @@ public class GameData
     public bool IsSound;
     public int CountOpenCar;
     public int CountGem;
+    public List<int> ShopItems;
     public GameData(Game data)
     {
         _seedRoad = data.Seed;
@@ -23,6 +24,7 @@ public class GameData
         IsSound = data.IsSound;
         CountOpenCar = data.CountOpenCar;
         CountGem = data.CountGem;
+        ShopItems = data.ShopItems;
     }
 
 
