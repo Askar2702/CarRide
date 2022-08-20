@@ -15,6 +15,8 @@ public class GameData
     public int CountGem;
     public List<int> ShopItems;
     public int CurrentCar;
+    public int Level;
+    public int IndexRoad;
     public GameData(Game data)
     {
         _seedRoad = data.Seed;
@@ -27,6 +29,8 @@ public class GameData
         CountGem = data.CountGem;
         ShopItems = data.ShopItems;
         CurrentCar = data.CurrentCar;
+        Level = data.Level;
+        IndexRoad = data.IndexRoad;
     }
 
 

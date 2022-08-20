@@ -15,7 +15,7 @@ public class SpawnCoin : MonoBehaviour
     private float _chanse = 95f;
     private void Awake()
     {
-        _sides = new float[] { 0f, -5f, 5f };
+        _sides = new float[] { 0f, -3f, 3f };
         _currentCoin = 0;
         CountCoins = 0;
         _lastPos = transform.position;
@@ -23,7 +23,7 @@ public class SpawnCoin : MonoBehaviour
 
     public void Spawn(Vector3 pos)
     {
-        var p = new Vector3((pos.x * 1.5f) + _side, (pos.y * 1.3f) + 3f, pos.z * 1.5f);
+        var p = new Vector3((pos.x * 1f) + _side, (pos.y * 1.3f) + 3f, pos.z * 1.5f);
         int i = 0;
         if (Random.Range(0, 100) > _chanse) i = 1;
         if (_currentCoin <= 3)

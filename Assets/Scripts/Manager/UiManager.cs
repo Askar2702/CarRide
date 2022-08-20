@@ -21,6 +21,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject _iconSoundPlay;
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private TextMeshProUGUI[] _gemTexts;
+    [SerializeField] private TextMeshProUGUI _levelLabel;
     public int CoinAmount { get; private set; }
     public int GemAmount { get; private set; }
 
@@ -34,10 +35,17 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Button _setSound;
     #endregion
 
+    #region Other
     [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
 
     [SerializeField] private Animation[] _anim;
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioClip _coinSound;
+    [SerializeField] private AudioClip _gemSound;
+    private const int MAXLEVEL = 99;
+    #endregion
+
 
     private void Awake()
     {
@@ -54,11 +62,11 @@ public class UiManager : MonoBehaviour
         _setSound.onClick.AddListener(() => EnableSound());
     }
 
+
     private void Start()
     {
         GameManager.instance.Finishing.AddListener(ShowFinishPanel);
-        AddGem(Game.instance.CountGem);
-        LoadSoundSetting();
+        LoadSetting();
     }
     private void StartGame()
     {
@@ -83,7 +91,6 @@ public class UiManager : MonoBehaviour
     private void PauseGame()
     {
         if (GameManager.instance.GameState != GameState.Play) return;
-
         if (_panel.anchoredPosition == _UpPos.anchoredPosition)
         {
             SetPosPanel(_centerPos);
@@ -124,7 +131,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    private void LoadSoundSetting()
+    private void LoadSetting()
     {
         if (Game.instance.IsSound)
         {
@@ -138,6 +145,9 @@ public class UiManager : MonoBehaviour
             _iconSoundPause.SetActive(false);
             _iconSoundPlay.SetActive(true);
         }
+        LoadInfoGem(Game.instance.CountGem);
+        if (Game.instance.Level >= MAXLEVEL) Game.instance.Level = 0;
+        _levelLabel.text = $"{Game.instance.Level + 1}";
     }
 
     public void ShowFinishPanel()
@@ -156,11 +166,18 @@ public class UiManager : MonoBehaviour
         CoinAmount++;
         _coinText.text = CoinAmount.ToString();
         _anim[0].Play();
+        _audio.PlayOneShot(_coinSound);
     }
 
     public void AddGem(int i)
     {
         _anim[1].Play();
+        _audio.PlayOneShot(_gemSound);
+        LoadInfoGem(i);
+    }
+
+    private void LoadInfoGem(int i)
+    {
         foreach (var item in _gemTexts)
         {
             item.text = i.ToString();

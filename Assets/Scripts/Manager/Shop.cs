@@ -25,6 +25,7 @@ public class Shop : MonoBehaviour
 
     private void ShowPanel()
     {
+        if (GameManager.instance.GameState == GameState.Finish) return;
         _panelShop.DOAnchorPos(Vector2.zero, _speed).SetEase(_ease).SetUpdate(true);
         _btnShowShop.DOAnchorPos(_rightPos.anchoredPosition, _speed).SetUpdate(true);
         Time.timeScale = 0;

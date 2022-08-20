@@ -10,8 +10,6 @@ public class CarSound : MonoBehaviour
     [SerializeField] private float _maxPitch;
     [SerializeField] private float _minPitch;
 
-    [SerializeField] private AudioClip _coinSong;
-    [SerializeField] private AudioClip _gemSong;
     private float _speed = 2;
     public void PlayAccelerationSong()
     {
@@ -33,8 +31,6 @@ public class CarSound : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<GenerationMap>() || other.CompareTag("Finish")) PlayCollisionClip();
-        if (other.GetComponent<Coin>()) _audioSource.PlayOneShot(_coinSong);
-        if (other.GetComponent<Gem>()) _audioSource.PlayOneShot(_gemSong);
     }
     private void OnCollisionEnter(Collision other)
     {

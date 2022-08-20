@@ -13,11 +13,7 @@ public class SteeringWheelControl : MonoBehaviour, IDragHandler, IPointerDownHan
     [SerializeField] private float _maxSteerAngle = 200f;
     [SerializeField] private float _releaseSpeed = 300f;
     public float OutPut;
-    private CarController _car;
-    private void Start()
-    {
-        _car = FindObjectOfType<CarController>();
-    }
+
     void Update()
     {
         if (!_wheelbeingheld && _wheelAngle != 0f)
@@ -32,7 +28,7 @@ public class SteeringWheelControl : MonoBehaviour, IDragHandler, IPointerDownHan
         }
         _wheel.localEulerAngles = new Vector3(0, 0, -_maxSteerAngle * OutPut);
         OutPut = _wheelAngle / _maxSteerAngle;
-        _car.SetSteer(OutPut);
+        CarManager.instance.CurrentCar.SetSteer(OutPut);
     }
     public void OnPointerDown(PointerEventData data)
     {

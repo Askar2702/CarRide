@@ -7,24 +7,25 @@ public class GenerationMap : MonoBehaviour
     [SerializeField] private bool _isRandom;
     [SerializeField] private Material _mat;
     public enum DrawMode { NoiseMap, ColourMap, Mesh };
-    public DrawMode drawMode;
+    [SerializeField] private DrawMode _drawMode;
     [SerializeField] private int _xSize;
     [SerializeField] private int _zSize;
     [SerializeField] private float _sizeMeshGrid;
     public const int mapChunkSize = 241;
     [Range(0, 6)]
-    public int levelOfDetail;
-    public float noiseScale;
+    [SerializeField] private int _levelOfDetail;
+    [SerializeField] private float _noiseScale;
 
-    public int octaves;
+    [SerializeField] private int _octaves;
     [Range(0, 1)]
-    public float persistance;
-    public float lacunarity;
+    [SerializeField] private float _persistance;
+    [SerializeField] private float _lacunarity;
 
     [field: SerializeField] public int Seed { get; private set; }
     [field: SerializeField] public Vector2 Offset { get; private set; }
 
-    public float meshHeightMultiplier;
+    [SerializeField] private float _meshHeightMultiplier;
+    [SerializeField] private RoadCurveSetting _roadCurveSetting;
     [SerializeField] private AnimationCurve _meshHeightCurve;
     [SerializeField] private AnimationCurve _curveRoad;
     [SerializeField] private AnimationCurve _curveHeightRoad;
@@ -42,7 +43,7 @@ public class GenerationMap : MonoBehaviour
     }
     public void GenerateMap()
     {
-        float[,] noiseMap = Noise.GenerateNoiseMap(_xSize, _zSize, Seed, noiseScale, octaves, persistance, lacunarity, Offset);
+        float[,] noiseMap = Noise.GenerateNoiseMap(_xSize, _zSize, Seed, _noiseScale, _octaves, _persistance, _lacunarity, Offset);
 
         Color[] colourMap = new Color[_xSize * _zSize];
         for (int y = 0; y < _zSize; y++)
@@ -62,32 +63,34 @@ public class GenerationMap : MonoBehaviour
         }
 
         MapDisplay display = FindObjectOfType<MapDisplay>();
-        if (drawMode == DrawMode.NoiseMap)
+        if (_drawMode == DrawMode.NoiseMap)
         {
             display.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
         }
-        else if (drawMode == DrawMode.ColourMap)
+        else if (_drawMode == DrawMode.ColourMap)
         {
             display.DrawTexture(TextureGenerator.TextureFromColourMap(colourMap, mapChunkSize, mapChunkSize));
         }
-        else if (drawMode == DrawMode.Mesh)
+        else if (_drawMode == DrawMode.Mesh)
         {
             var y = Mathf.RoundToInt(1 * _zSize * 1 * .05f);
             _mat.mainTextureScale = new Vector2(_mat.mainTextureScale.x, y);
-            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(transform.position, noiseMap, _sizeMeshGrid, meshHeightMultiplier, _meshHeightCurve, _curveRoad, _curveHeightRoad, levelOfDetail, _spawnCoin), _mat);
-            //            SliceManager.instance.StartCut();
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(transform.position, noiseMap, _sizeMeshGrid,
+             _meshHeightMultiplier, _meshHeightCurve, _roadCurveSetting.RoadSettings[Game.instance.IndexRoad].XCurveRoad,
+             _roadCurveSetting.RoadSettings[Game.instance.IndexRoad].YCurveRoad,
+             _levelOfDetail, _spawnCoin), _mat);
         }
     }
 
     void OnValidate()
     {
-        if (lacunarity < 1)
+        if (_lacunarity < 1)
         {
-            lacunarity = 1;
+            _lacunarity = 1;
         }
-        if (octaves < 0)
+        if (_octaves < 0)
         {
-            octaves = 0;
+            _octaves = 0;
         }
     }
 
@@ -107,6 +110,8 @@ public class GenerationMap : MonoBehaviour
         Seed = load.Item2;
         Offset = load.Item3;
     }
+
+
 }
 
 [System.Serializable]

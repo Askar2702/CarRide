@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem _conffetti;
     [SerializeField] private AudioClip _audioFinish;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private RoadCurveSetting _roadCurveSetting;
     private UiManager _uiManager;
     private void Awake()
     {
@@ -70,6 +71,12 @@ public class GameManager : MonoBehaviour
         _game.Seed = _generator.Seed;
         _game.IsRandomGeneration = activ;
         _game.SetRoadOffset(_generator.Offset);
+        if (activ)
+        {
+            Game.instance.Level++;
+            Game.instance.IndexRoad++;
+            if (Game.instance.IndexRoad >= _roadCurveSetting.RoadSettings.Length) Game.instance.IndexRoad = 0;
+        }
     }
     public (bool, int, Vector2) LoadData()
     {

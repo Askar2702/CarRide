@@ -32,7 +32,7 @@ public static class MeshGenerator
                     meshData.AddTriangle(vertexIndex, vertexIndex + verticesPerLine + 1, vertexIndex + verticesPerLine);
                     meshData.AddTriangle(vertexIndex + verticesPerLine + 1, vertexIndex, vertexIndex + 1);
                 }
-                if ((y - zPoint) >= 1f && (width / 2 == x))
+                if ((y - zPoint) >= 1f && (width / 2 == x) && y > 5)
                 {
                     zPoint = y;
                     spawn.Spawn(pos);

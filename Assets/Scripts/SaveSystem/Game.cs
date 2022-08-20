@@ -16,6 +16,8 @@ public class Game : MonoBehaviour
     private const int MAXCARCOUNT = 7;
     private int _countGem;
     private int _currentCar;
+    private int _level;
+    private int _indexRoad;
 
     public int Seed
     {
@@ -132,6 +134,39 @@ public class Game : MonoBehaviour
             }
         }
     }
+
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+        set
+        {
+            if (_level != value)
+            {
+                _level = value;
+                SaveData();
+            }
+        }
+    }
+
+    public int IndexRoad
+    {
+        get
+        {
+            return _indexRoad;
+        }
+        set
+        {
+            if (_indexRoad != value)
+            {
+                _indexRoad = value;
+                SaveData();
+            }
+        }
+    }
+
     private void Awake()
     {
         if (!instance) instance = this;
@@ -161,6 +196,8 @@ public class Game : MonoBehaviour
         _countGem = data.CountGem;
         ShopItems = data.ShopItems;
         _currentCar = data.CurrentCar;
+        _level = data.Level;
+        _indexRoad = data.IndexRoad;
     }
 
     public void SetRoadOffset(Vector2 offset)

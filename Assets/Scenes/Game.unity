@@ -2600,7 +2600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414276724}
   m_LocalRotation: {x: 0.25666785, y: 1e-45, z: 0, w: 0.9664997}
-  m_LocalPosition: {x: 32, y: 25, z: 12.700001}
+  m_LocalPosition: {x: 20, y: 25, z: 12.700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5750,7 +5750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.25666785, y: 1e-45, z: 0, w: 0.9664997}
-  m_LocalPosition: {x: 32, y: 25, z: 12.700001}
+  m_LocalPosition: {x: 20, y: 25, z: 12.700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8878,6 +8878,7 @@ MonoBehaviour:
   _conffetti: {fileID: 87476101}
   _audioFinish: {fileID: 8300000, guid: 6e3e388a817d07f4783f23de71e20695, type: 3}
   _audioSource: {fileID: 1411850564}
+  _roadCurveSetting: {fileID: 11400000, guid: 31370f7e460f13141b25256bb3c1c61c, type: 2}
 --- !u!114 &1411850558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8902,6 +8903,7 @@ MonoBehaviour:
   _gemTexts:
   - {fileID: 668318146}
   - {fileID: 1282552278}
+  _levelLabel: {fileID: 2079976765}
   _start: {fileID: 1008626699}
   _exit: {fileID: 2145183020}
   _nextGame: {fileID: 143776238}
@@ -8915,6 +8917,9 @@ MonoBehaviour:
   _anim:
   - {fileID: 1072172807}
   - {fileID: 1282552277}
+  _audio: {fileID: 1411850564}
+  _coinSound: {fileID: 8300000, guid: 5348493735905394eb9cda6455b29f1e, type: 3}
+  _gemSound: {fileID: 8300000, guid: bb3eb02371592824d9e617da7c5e0eda, type: 3}
 --- !u!4 &1411850559
 Transform:
   m_ObjectHideFlags: 0
@@ -8944,7 +8949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sliderBarDistance: {fileID: 477281032}
   _finish: {fileID: 2094057367}
-  _startPos: {x: 32, y: 20, z: 20}
+  _startPos: {x: 20, y: 20, z: 20}
   _cars:
   - {fileID: 7576874053082451547, guid: 4a4986ac2f7e7fe419327e0a237d7e51, type: 3}
   - {fileID: 7576874053082451547, guid: d768cb3bb31400f42aa2e585e4deff65, type: 3}
@@ -9406,7 +9411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 9.999756, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1441386317
@@ -12640,7 +12645,7 @@ Transform:
   m_GameObject: {fileID: 1969687513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.3, z: 1.5}
+  m_LocalScale: {x: 1, y: 1.3, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12660,18 +12665,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isRandom: 1
   _mat: {fileID: 2100000, guid: ed70f3ddf95170944b7e26ae9d58a770, type: 2}
-  drawMode: 2
+  _drawMode: 2
   _xSize: 20
   _zSize: 500
   _sizeMeshGrid: 0.5
-  levelOfDetail: 0
-  noiseScale: 35
-  octaves: 25
-  persistance: 0.7
-  lacunarity: 2
+  _levelOfDetail: 0
+  _noiseScale: 35
+  _octaves: 25
+  _persistance: 0.7
+  _lacunarity: 2
   <Seed>k__BackingField: 0
   <Offset>k__BackingField: {x: 0, y: 0}
-  meshHeightMultiplier: 3.5
+  _meshHeightMultiplier: 3.5
+  _roadCurveSetting: {fileID: 11400000, guid: 31370f7e460f13141b25256bb3c1c61c, type: 2}
   _meshHeightCurve:
     serializedVersion: 2
     m_Curve:
@@ -13362,7 +13368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c1e6125151f34ee3bd915e903d83c53, type: 2}
   m_sharedMaterial: {fileID: -3456647468861423577, guid: 1c1e6125151f34ee3bd915e903d83c53, type: 2}
@@ -13468,7 +13474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094057362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31, y: 6.9, z: 1544.8}
+  m_LocalPosition: {x: 20, y: 6.9, z: 1544.8}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
