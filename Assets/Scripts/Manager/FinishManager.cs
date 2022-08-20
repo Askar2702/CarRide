@@ -9,7 +9,6 @@ using TMPro;
 
 public class FinishManager : MonoBehaviour
 {
-    [SerializeField] private Game _game;
     [SerializeField] private Transform[] _stars;
     [SerializeField] private TextMeshProUGUI _coins;
     [SerializeField] private float _speed;
@@ -40,7 +39,8 @@ public class FinishManager : MonoBehaviour
         {
             await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _speed).SetEase(_ease).AsyncWaitForCompletion();
         }
-        _gift.ShowGift(_carImages[_game.CountOpenCar]);
+        if (Game.instance.CountOpenCar < _carImages.Length)
+            _gift.ShowGift(_carImages[Game.instance.CountOpenCar]);
     }
 
     private int CheckCoins()

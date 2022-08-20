@@ -14,6 +14,7 @@ public class GameData
     public int CountOpenCar;
     public int CountGem;
     public List<int> ShopItems;
+    public int CurrentCar;
     public GameData(Game data)
     {
         _seedRoad = data.Seed;
@@ -25,6 +26,7 @@ public class GameData
         CountOpenCar = data.CountOpenCar;
         CountGem = data.CountGem;
         ShopItems = data.ShopItems;
+        CurrentCar = data.CurrentCar;
     }
 
 

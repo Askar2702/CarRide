@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     public int maxCarCount => MAXCARCOUNT;
     private const int MAXCARCOUNT = 7;
     private int _countGem;
+    private int _currentCar;
 
     public int Seed
     {
@@ -114,6 +115,23 @@ public class Game : MonoBehaviour
     }
 
     public List<int> ShopItems { get; private set; } = new List<int>();
+
+    public int CurrentCar
+    {
+        get
+        {
+            return _currentCar;
+        }
+        set
+        {
+            if (_currentCar != value)
+            {
+                _currentCar = value;
+                SaveData();
+                CarManager.instance.SpawnShopCar(_currentCar);
+            }
+        }
+    }
     private void Awake()
     {
         if (!instance) instance = this;
@@ -142,6 +160,7 @@ public class Game : MonoBehaviour
         _countOpenCar = data.CountOpenCar;
         _countGem = data.CountGem;
         ShopItems = data.ShopItems;
+        _currentCar = data.CurrentCar;
     }
 
     public void SetRoadOffset(Vector2 offset)

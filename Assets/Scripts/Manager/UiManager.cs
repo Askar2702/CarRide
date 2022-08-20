@@ -22,6 +22,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private TextMeshProUGUI[] _gemTexts;
     public int CoinAmount { get; private set; }
+    public int GemAmount { get; private set; }
 
     #endregion
     #region UI Button
@@ -37,8 +38,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Ease _ease;
 
     [SerializeField] private Animation[] _anim;
-    private CarController _car;
-
 
     private void Awake()
     {
@@ -53,7 +52,6 @@ public class UiManager : MonoBehaviour
 
         _pause.onClick.AddListener(() => PauseGame());
         _setSound.onClick.AddListener(() => EnableSound());
-        _car = FindObjectOfType<CarController>();
     }
 
     private void Start()
@@ -96,7 +94,7 @@ public class UiManager : MonoBehaviour
             _exit.gameObject.SetActive(true);
             _setSound.gameObject.SetActive(true);
             Time.timeScale = 0;
-            _car.SetEnableAudio(false);
+            CarManager.instance.CurrentCar.SetEnableAudio(false);
         }
         else if (_panel.anchoredPosition != _UpPos.anchoredPosition)
         {
@@ -104,7 +102,7 @@ public class UiManager : MonoBehaviour
             _iconPause.SetActive(true);
             _iconPlay.SetActive(false);
             Time.timeScale = 1;
-            _car.SetEnableAudio(true);
+            CarManager.instance.CurrentCar.SetEnableAudio(true);
         }
     }
 

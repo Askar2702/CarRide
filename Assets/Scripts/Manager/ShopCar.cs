@@ -46,7 +46,8 @@ public class ShopCar : MonoBehaviour
         {
             if (CheckedItem())
             {
-                _priceParent.SetActive(false);
+                //_priceParent.SetActive(false);
+                Game.instance.CurrentCar = _id;
             }
             else
             {
@@ -55,9 +56,11 @@ public class ShopCar : MonoBehaviour
                     Game.instance.CountGem -= _price;
                     _priceParent.SetActive(false);
                     Game.instance.SetShopItem(_id);
+                    Game.instance.CurrentCar = _id;
                 }
             }
         }
+        else if (_id == 0) Game.instance.CurrentCar = _id;
     }
 
     private bool CheckedItem()

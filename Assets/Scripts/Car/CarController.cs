@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour
     public enum StateMove { Acceleration = 0, Zero = 1, Back = 2 }
     private enum StateSteeringWheel { Right = 0, Middle = 1, Left = 2 }
 
-
+    [field: SerializeField] public int Id { get; private set; }
     private StateMove _stateMove;
     private StateSteeringWheel _stateSteeringWheel;
     public float Horizontal { get; private set; }
@@ -19,8 +19,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private Light[] _lights;
     [SerializeField] private CarSound _carSound;
     [SerializeField] private AudioSource[] _audioSources;
-
-    private Transform _road;
+    [SerializeField] private ParticleSystem _windEffect;
+    private Rigidbody _rb;
+    private float _carSpeedForWind = 25;
     public void SetSteer(float s)
     {
         Horizontal = s;
@@ -30,6 +31,7 @@ public class CarController : MonoBehaviour
         _stateMove = StateMove.Zero;
         _stateSteeringWheel = StateSteeringWheel.Middle;
         CurrentBreakForse = _breakForse;
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -38,12 +40,18 @@ public class CarController : MonoBehaviour
         {
             Move();
             if (transform.position.y < -100f) GameManager.instance.Lose();
+
+            if (_rb.velocity.magnitude >= _carSpeedForWind)
+            {
+                if (_windEffect.isPlaying) return;
+                _windEffect.Play();
+            }
+            else _windEffect.Stop();
         }
         else if (GameManager.instance.GameState == GameState.Finish)
         {
             ApplyBreaking(true);
         }
-
     }
 
 
