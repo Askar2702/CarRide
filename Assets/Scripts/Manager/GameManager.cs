@@ -19,16 +19,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioFinish;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private RoadCurveSetting _roadCurveSetting;
-    private UiManager _uiManager;
     private void Awake()
     {
         if (!instance) instance = this;
-        _uiManager = GetComponent<UiManager>();
     }
     void Start()
     {
         SetstateGame(GameState.Start);
-        _uiManager.Act += ButtonAction;
+        UiManager.instance.Act += ButtonAction;
     }
 
     public void Finish()
@@ -43,6 +41,7 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         SaveData(false);
+        UiManager.instance.ResetProgress();
         SceneManager.LoadScene("LoadScene");
     }
 

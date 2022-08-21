@@ -14,6 +14,7 @@ public class FinishManager : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Ease _ease;
     [SerializeField] private Sprite[] _carImages;
+    [SerializeField] private Sprite[] _carWhiteImages;
     [SerializeField] private Gift _gift;
     private SpawnCoin _spawnCoin;
 
@@ -40,7 +41,7 @@ public class FinishManager : MonoBehaviour
             await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _speed).SetEase(_ease).AsyncWaitForCompletion();
         }
         if (Game.instance.CountOpenCar < _carImages.Length)
-            _gift.ShowGift(_carImages[Game.instance.CountOpenCar]);
+            _gift.ShowGift(_carImages[Game.instance.CountOpenCar], _carWhiteImages[Game.instance.CountOpenCar]);
     }
 
     private int CheckCoins()

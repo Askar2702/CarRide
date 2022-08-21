@@ -11,7 +11,7 @@ public class UiManager : MonoBehaviour
     public static UiManager instance;
     public event Action<ButtonState> Act;
     #region UI
-    [SerializeField] private RectTransform _panel;
+    [SerializeField] private RectTransform _panelStartAndPause;
     [SerializeField] private RectTransform _panelFinish;
     [SerializeField] private RectTransform _UpPos;
     [SerializeField] private RectTransform _centerPos;
@@ -45,7 +45,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private AudioClip _gemSound;
     private const int MAXLEVEL = 99;
     #endregion
-
+    private Tween _sequence;
+    private int _currentCountGem;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class UiManager : MonoBehaviour
 
         _pause.onClick.AddListener(() => PauseGame());
         _setSound.onClick.AddListener(() => EnableSound());
+        DOTween.Init();
     }
 
 
@@ -67,6 +69,7 @@ public class UiManager : MonoBehaviour
     {
         GameManager.instance.Finishing.AddListener(ShowFinishPanel);
         LoadSetting();
+        _currentCountGem = 0;
     }
     private void StartGame()
     {
@@ -91,7 +94,7 @@ public class UiManager : MonoBehaviour
     private void PauseGame()
     {
         if (GameManager.instance.GameState != GameState.Play) return;
-        if (_panel.anchoredPosition == _UpPos.anchoredPosition)
+        if (_panelStartAndPause.anchoredPosition == _UpPos.anchoredPosition)
         {
             SetPosPanel(_centerPos);
             _start.gameObject.SetActive(false);
@@ -103,7 +106,7 @@ public class UiManager : MonoBehaviour
             Time.timeScale = 0;
             CarManager.instance.CurrentCar.SetEnableAudio(false);
         }
-        else if (_panel.anchoredPosition != _UpPos.anchoredPosition)
+        else if (_panelStartAndPause.anchoredPosition != _UpPos.anchoredPosition)
         {
             SetPosPanel(_UpPos);
             _iconPause.SetActive(true);
@@ -157,7 +160,12 @@ public class UiManager : MonoBehaviour
 
     private void SetPosPanel(RectTransform pos)
     {
-        _panel.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
+        if (_sequence == null) _sequence = _panelStartAndPause.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
+        else
+        {
+            _sequence.Kill(true);
+            _sequence = _panelStartAndPause.DOAnchorPos(pos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
+        }
     }
 
 
@@ -169,8 +177,13 @@ public class UiManager : MonoBehaviour
         _audio.PlayOneShot(_coinSound);
     }
 
+    public void ResetProgress()
+    {
+        Game.instance.CountGem -= _currentCountGem;
+    }
     public void AddGem(int i)
     {
+        _currentCountGem++;
         _anim[1].Play();
         _audio.PlayOneShot(_gemSound);
         LoadInfoGem(i);
