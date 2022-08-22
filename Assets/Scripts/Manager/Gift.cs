@@ -24,10 +24,12 @@ public class Gift : MonoBehaviour
         _giftCar.sprite = car;
         _gift.sprite = carWhite;
         _giftBackground.sprite = carWhite;
+        Game.instance.GiftProgress += 0.25f;
         await _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, _time).SetEase(Ease.OutBack).AsyncWaitForCompletion();
         await _gift.DOFillAmount(_gift.fillAmount + 0.25f, 2f).AsyncWaitForCompletion();
         if (_gift.fillAmount >= 1f)
         {
+            Game.instance.GiftProgress = 0;
             _giftCar.gameObject.SetActive(true);
             _gift.fillAmount = 0;
             _gift.transform.parent.gameObject.SetActive(false);
@@ -37,6 +39,5 @@ public class Gift : MonoBehaviour
             await Task.Delay(2000);
         }
         _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(_startPos, _time);
-        Game.instance.GiftProgress = _gift.fillAmount;
     }
 }

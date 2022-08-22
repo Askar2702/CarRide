@@ -387,8 +387,8 @@ MonoBehaviour:
   fourWheelDrive: 1
   isMobileInput: 1
   _maxAngle: 30
-  _maxTorque: 3000
-  _maxSpeed: 1000
+  _maxTorque: 10000
+  _maxSpeed: 1500
   _wheelShape: {fileID: 2526693844934738870, guid: 663d28f52983c8d4091489a0ade4cab9, type: 3}
 --- !u!114 &7576874053082451547
 MonoBehaviour:
@@ -428,8 +428,6 @@ MonoBehaviour:
   _miniCollisonClip: {fileID: 8300000, guid: a360cf10944b9e9408f6a4474eb42ed4, type: 3}
   _maxPitch: 1.8
   _minPitch: 1
-  _coinSong: {fileID: 8300000, guid: 5348493735905394eb9cda6455b29f1e, type: 3}
-  _gemSong: {fileID: 8300000, guid: bb3eb02371592824d9e617da7c5e0eda, type: 3}
 --- !u!82 &6005401828792644042
 AudioSource:
   m_ObjectHideFlags: 0
