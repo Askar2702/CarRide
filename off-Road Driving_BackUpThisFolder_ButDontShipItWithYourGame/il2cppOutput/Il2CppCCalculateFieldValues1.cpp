@@ -29733,16 +29733,12 @@ struct GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A  : public MonoBeh
 	RoadCurveSetting_t05C30F0D2CC66FCB028FFDCD0DC9EAEAEF9C4F29* ____roadCurveSetting_19;
 	// UnityEngine.AnimationCurve GenerationMap::_meshHeightCurve
 	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____meshHeightCurve_20;
-	// UnityEngine.AnimationCurve GenerationMap::_curveRoad
-	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____curveRoad_21;
-	// UnityEngine.AnimationCurve GenerationMap::_curveHeightRoad
-	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____curveHeightRoad_22;
 	// SpawnCoin GenerationMap::_spawnCoin
-	SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* ____spawnCoin_23;
+	SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* ____spawnCoin_21;
 	// System.Boolean GenerationMap::autoUpdate
-	bool ___autoUpdate_24;
+	bool ___autoUpdate_22;
 	// TerrainType[] GenerationMap::regions
-	TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* ___regions_25;
+	TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* ___regions_23;
 };
 
 // Gift
@@ -37766,9 +37762,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5069[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5071[4] = 
 {
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5072[22] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5072[20] = 
 {
-	static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____isRandom_4)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____mat_5)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____drawMode_6)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____xSize_7)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____zSize_8)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____sizeMeshGrid_9)),0,static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____levelOfDetail_11)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____noiseScale_12)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____octaves_13)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____persistance_14)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____lacunarity_15)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___U3CSeedU3Ek__BackingField_16)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___U3COffsetU3Ek__BackingField_17)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____meshHeightMultiplier_18)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____roadCurveSetting_19)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____meshHeightCurve_20)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____curveRoad_21)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____curveHeightRoad_22)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____spawnCoin_23)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___autoUpdate_24)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___regions_25)),};
+	static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____isRandom_4)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____mat_5)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____drawMode_6)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____xSize_7)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____zSize_8)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____sizeMeshGrid_9)),0,static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____levelOfDetail_11)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____noiseScale_12)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____octaves_13)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____persistance_14)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____lacunarity_15)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___U3CSeedU3Ek__BackingField_16)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___U3COffsetU3Ek__BackingField_17)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____meshHeightMultiplier_18)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____roadCurveSetting_19)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____meshHeightCurve_20)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ____spawnCoin_21)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___autoUpdate_22)),static_cast<int32_t>(offsetof(GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A, ___regions_23)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5073[3] = 
 {
 	static_cast<int32_t>(offsetof(TerrainType_tB2FD70716E8E139AE2E0928C827A29470807F40D, ___name_0)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(TerrainType_tB2FD70716E8E139AE2E0928C827A29470807F40D, ___height_1)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(TerrainType_tB2FD70716E8E139AE2E0928C827A29470807F40D, ___colour_2)) + static_cast<int32_t>(sizeof(RuntimeObject)),};

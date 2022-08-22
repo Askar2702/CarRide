@@ -27,8 +27,6 @@ public class GenerationMap : MonoBehaviour
     [SerializeField] private float _meshHeightMultiplier;
     [SerializeField] private RoadCurveSetting _roadCurveSetting;
     [SerializeField] private AnimationCurve _meshHeightCurve;
-    [SerializeField] private AnimationCurve _curveRoad;
-    [SerializeField] private AnimationCurve _curveHeightRoad;
     private SpawnCoin _spawnCoin;
 
     public bool autoUpdate;

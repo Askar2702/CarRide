@@ -39,7 +39,8 @@ public class CarController : MonoBehaviour
         if (GameManager.instance.GameState == GameState.Play)
         {
             Move();
-            if (transform.position.y < -100f) GameManager.instance.Lose();
+            TurnSide();
+            if (transform.position.y < -150f) GameManager.instance.Lose();
 
             if (_rb.velocity.magnitude >= _carSpeedForWind)
             {
@@ -94,6 +95,25 @@ public class CarController : MonoBehaviour
     public void TurnSide(int i)
     {
         _stateSteeringWheel = (StateSteeringWheel)i;
+    }
+
+    private void TurnSide()
+    {
+
+        if (_stateSteeringWheel == StateSteeringWheel.Right)
+        {
+            Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime, -1, 1);
+        }
+        else if (_stateSteeringWheel == StateSteeringWheel.Left)
+        {
+            Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime, -1, 1);
+        }
+        else
+        {
+            if (Horizontal == 0) return;
+            if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime, -1, 1);
+            else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime, -1, 1);
+        }
     }
 
     public void ApplyBreaking(bool activ)

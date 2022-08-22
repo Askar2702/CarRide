@@ -34,7 +34,10 @@ public class CarManager : MonoBehaviour
     {
         CurrentCar.ApplyBreaking(activ);
     }
-
+    public void TurnSide(int i)
+    {
+        CurrentCar.TurnSide(i);
+    }
     public void SpawnShopCar(int id)
     {
         if (CurrentCar.Id == _cars[id].Id) return;

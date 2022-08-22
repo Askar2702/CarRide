@@ -4109,16 +4109,12 @@ struct GenerationMap_tF863D9180DAAF0371E717897F2F5ED0BC791FC9A  : public MonoBeh
 	RoadCurveSetting_t05C30F0D2CC66FCB028FFDCD0DC9EAEAEF9C4F29* ____roadCurveSetting_19;
 	// UnityEngine.AnimationCurve GenerationMap::_meshHeightCurve
 	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____meshHeightCurve_20;
-	// UnityEngine.AnimationCurve GenerationMap::_curveRoad
-	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____curveRoad_21;
-	// UnityEngine.AnimationCurve GenerationMap::_curveHeightRoad
-	AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ____curveHeightRoad_22;
 	// SpawnCoin GenerationMap::_spawnCoin
-	SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* ____spawnCoin_23;
+	SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* ____spawnCoin_21;
 	// System.Boolean GenerationMap::autoUpdate
-	bool ___autoUpdate_24;
+	bool ___autoUpdate_22;
 	// TerrainType[] GenerationMap::regions
-	TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* ___regions_25;
+	TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* ___regions_23;
 };
 
 // Gift
@@ -8275,20 +8271,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarController_Update_mA0FE1C8A651320D6A5
 	{
 		// Move();
 		CarController_Move_mB7167911D21B2977F920A48521336394E181C018(__this, NULL);
-		// if (transform.position.y < -100f) GameManager.instance.Lose();
+		// if (transform.position.y < -150f) GameManager.instance.Lose();
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_2);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
 		L_3 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_2, NULL);
 		float L_4 = L_3.___y_3;
-		if ((!(((float)L_4) < ((float)(-100.0f)))))
+		if ((!(((float)L_4) < ((float)(-150.0f)))))
 		{
 			goto IL_0034;
 		}
 	}
 	{
-		// if (transform.position.y < -100f) GameManager.instance.Lose();
+		// if (transform.position.y < -150f) GameManager.instance.Lose();
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_5 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___instance_4;
 		NullCheck(L_5);
 		GameManager_Lose_mEA933A5A089DCE9100E8C8C79BD9D21992050CD5(L_5, NULL);
@@ -10608,8 +10604,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GenerationMap_Start_m268D801A1CFAD84C8BE
 		// _spawnCoin = GetComponent<SpawnCoin>();
 		SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* L_0;
 		L_0 = Component_GetComponent_TisSpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E_m0682C6A895BBC5B499539D8D06A6613856B5BD90(__this, Component_GetComponent_TisSpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E_m0682C6A895BBC5B499539D8D06A6613856B5BD90_RuntimeMethod_var);
-		__this->____spawnCoin_23 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->____spawnCoin_23), (void*)L_0);
+		__this->____spawnCoin_21 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->____spawnCoin_21), (void*)L_0);
 		// SetGeneration();
 		GenerationMap_SetGeneration_m7E20044039CC431EE397A169A1DC9BEA1CE1B06D(__this, NULL);
 		// RandomGenerated();
@@ -10691,7 +10687,7 @@ IL_0062:
 	{
 		// if (currentHeight <= regions[i].height)
 		float L_16 = V_5;
-		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_17 = __this->___regions_25;
+		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_17 = __this->___regions_23;
 		int32_t L_18 = V_6;
 		NullCheck(L_17);
 		float L_19 = ((L_17)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_18)))->___height_1;
@@ -10706,7 +10702,7 @@ IL_0062:
 		int32_t L_21 = V_3;
 		int32_t L_22 = __this->____xSize_7;
 		int32_t L_23 = V_4;
-		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_24 = __this->___regions_25;
+		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_24 = __this->___regions_23;
 		int32_t L_25 = V_6;
 		NullCheck(L_24);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_26 = ((L_24)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_25)))->___colour_2;
@@ -10727,7 +10723,7 @@ IL_00a3:
 	{
 		// for (int i = 0; i < regions.Length; i++)
 		int32_t L_28 = V_6;
-		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_29 = __this->___regions_25;
+		TerrainTypeU5BU5D_tECECE2E36014635AF0495E9F4D5F6443DC155283* L_29 = __this->___regions_23;
 		NullCheck(L_29);
 		if ((((int32_t)L_28) < ((int32_t)((int32_t)(((RuntimeArray*)L_29)->max_length)))))
 		{
@@ -10879,7 +10875,7 @@ IL_0107:
 		NullCheck(L_73);
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_74 = L_73->___YCurveRoad_1;
 		int32_t L_75 = __this->____levelOfDetail_11;
-		SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* L_76 = __this->____spawnCoin_23;
+		SpawnCoin_t11D4E1F353AC6888268AAAFE6D4061ED415EBA6E* L_76 = __this->____spawnCoin_21;
 		MeshData_t9D6F7686BF953CE98E88DE588F9762B86853CE23* L_77;
 		L_77 = MeshGenerator_GenerateTerrainMesh_mB30438215189A6A91E2C81A54D9EED69201B773B(L_56, L_57, L_58, L_59, L_60, L_67, L_74, L_75, L_76, NULL);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_78 = __this->____mat_5;
@@ -12426,7 +12422,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CLoadSceneU3Ed__6_MoveNext_m4C36831EDB
 	}
 	int32_t V_0 = 0;
 	Load_t8F3AEDDC9213B5716FC425780011B0193A497DAE* V_1 = NULL;
-	float V_2 = 0.0f;
 	{
 		int32_t L_0 = __this->___U3CU3E1__state_0;
 		V_0 = L_0;
@@ -12445,7 +12440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CLoadSceneU3Ed__6_MoveNext_m4C36831EDB
 			}
 			case 2:
 			{
-				goto IL_00b9;
+				goto IL_00a2;
 			}
 		}
 	}
@@ -12476,46 +12471,39 @@ IL_0039:
 		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_4 = __this->___U3CloadSceneGameU3E5__2_3;
 		NullCheck(L_4);
 		AsyncOperation_set_allowSceneActivation_mBD94FAB342455508CD7962D3CED490C64AF74522(L_4, (bool)0, NULL);
-		// float timer = 0;
-		V_2 = (0.0f);
-		goto IL_00c0;
+		goto IL_00a9;
 	}
 
-IL_0064:
+IL_005e:
 	{
-		// timer = loadSceneGame.progress;
-		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_5 = __this->___U3CloadSceneGameU3E5__2_3;
+		// _load.fillAmount = loadSceneGame.progress;
+		Load_t8F3AEDDC9213B5716FC425780011B0193A497DAE* L_5 = V_1;
 		NullCheck(L_5);
-		float L_6;
-		L_6 = AsyncOperation_get_progress_mF3B2837C1A5DDF3C2F7A3BA1E449DD4C71C632EE(L_5, NULL);
-		V_2 = L_6;
-		// _load.fillAmount = Mathf.Clamp(timer, 0f, 0.7f);
-		Load_t8F3AEDDC9213B5716FC425780011B0193A497DAE* L_7 = V_1;
+		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_6 = L_5->____load_5;
+		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_7 = __this->___U3CloadSceneGameU3E5__2_3;
 		NullCheck(L_7);
-		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_8 = L_7->____load_5;
-		float L_9 = V_2;
-		float L_10;
-		L_10 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(L_9, (0.0f), (0.699999988f), NULL);
-		NullCheck(L_8);
-		Image_set_fillAmount_m8A9B55F47F966A3214EAC4ACBFE198776A98FAA7(L_8, L_10, NULL);
+		float L_8;
+		L_8 = AsyncOperation_get_progress_mF3B2837C1A5DDF3C2F7A3BA1E449DD4C71C632EE(L_7, NULL);
+		NullCheck(L_6);
+		Image_set_fillAmount_m8A9B55F47F966A3214EAC4ACBFE198776A98FAA7(L_6, L_8, NULL);
 		// if (loadSceneGame.progress >= 0.9f)
-		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_11 = __this->___U3CloadSceneGameU3E5__2_3;
-		NullCheck(L_11);
-		float L_12;
-		L_12 = AsyncOperation_get_progress_mF3B2837C1A5DDF3C2F7A3BA1E449DD4C71C632EE(L_11, NULL);
-		if ((!(((float)L_12) >= ((float)(0.899999976f)))))
+		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_9 = __this->___U3CloadSceneGameU3E5__2_3;
+		NullCheck(L_9);
+		float L_10;
+		L_10 = AsyncOperation_get_progress_mF3B2837C1A5DDF3C2F7A3BA1E449DD4C71C632EE(L_9, NULL);
+		if ((!(((float)L_10) >= ((float)(0.899999976f)))))
 		{
-			goto IL_00a9;
+			goto IL_0092;
 		}
 	}
 	{
 		// loadSceneGame.allowSceneActivation = true;
-		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_13 = __this->___U3CloadSceneGameU3E5__2_3;
-		NullCheck(L_13);
-		AsyncOperation_set_allowSceneActivation_mBD94FAB342455508CD7962D3CED490C64AF74522(L_13, (bool)1, NULL);
+		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_11 = __this->___U3CloadSceneGameU3E5__2_3;
+		NullCheck(L_11);
+		AsyncOperation_set_allowSceneActivation_mBD94FAB342455508CD7962D3CED490C64AF74522(L_11, (bool)1, NULL);
 	}
 
-IL_00a9:
+IL_0092:
 	{
 		// yield return null;
 		__this->___U3CU3E2__current_1 = NULL;
@@ -12524,21 +12512,21 @@ IL_00a9:
 		return (bool)1;
 	}
 
-IL_00b9:
+IL_00a2:
 	{
 		__this->___U3CU3E1__state_0 = (-1);
 	}
 
-IL_00c0:
+IL_00a9:
 	{
 		// while (!loadSceneGame.isDone)
-		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_14 = __this->___U3CloadSceneGameU3E5__2_3;
-		NullCheck(L_14);
-		bool L_15;
-		L_15 = AsyncOperation_get_isDone_m68A0682777E2132FC033182E9F50303566AA354D(L_14, NULL);
-		if (!L_15)
+		AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* L_12 = __this->___U3CloadSceneGameU3E5__2_3;
+		NullCheck(L_12);
+		bool L_13;
+		L_13 = AsyncOperation_get_isDone_m68A0682777E2132FC033182E9F50303566AA354D(L_12, NULL);
+		if (!L_13)
 		{
-			goto IL_0064;
+			goto IL_005e;
 		}
 	}
 	{
