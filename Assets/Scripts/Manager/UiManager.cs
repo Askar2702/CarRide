@@ -33,6 +33,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Button[] _restart;
     [SerializeField] private Button _pause;
     [SerializeField] private Button _setSound;
+    [SerializeField] private Button _machineControlsetting;
     #endregion
 
     #region Other
@@ -43,6 +44,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] private AudioSource _audio;
     [SerializeField] private AudioClip _coinSound;
     [SerializeField] private AudioClip _gemSound;
+    [SerializeField] private GameObject _machineControlImgYes;
+    [SerializeField] private GameObject _machineControlImgNo;
+    [SerializeField] private GameObject _steeringWheel;
+    [SerializeField] private GameObject _buttonsArrowParent;
     private const int MAXLEVEL = 99;
     #endregion
     private Tween _sequence;
@@ -54,6 +59,7 @@ public class UiManager : MonoBehaviour
         _start.onClick.AddListener(StartGame);
         _nextGame.onClick.AddListener(() => NextGame());
         _exit.onClick.AddListener(() => ExitGame());
+        _machineControlsetting.onClick.AddListener(() => MachineControlSetting());
         foreach (var item in _restart)
         {
             item.onClick.AddListener(() => RestartGame());
@@ -103,6 +109,7 @@ public class UiManager : MonoBehaviour
             _iconPlay.SetActive(true);
             _exit.gameObject.SetActive(true);
             _setSound.gameObject.SetActive(true);
+            _machineControlsetting.gameObject.SetActive(true);
             Time.timeScale = 0;
             CarManager.instance.CurrentCar.SetEnableAudio(false);
         }
@@ -151,6 +158,20 @@ public class UiManager : MonoBehaviour
         LoadInfoGem(Game.instance.CountGem);
         if (Game.instance.Level >= MAXLEVEL) Game.instance.Level = 0;
         _levelLabel.text = $"{Game.instance.Level + 1}";
+        if (Game.instance.SteeringWheel)
+        {
+            _machineControlImgYes.SetActive(false);
+            _machineControlImgNo.SetActive(true);
+            _steeringWheel.SetActive(false);
+            _buttonsArrowParent.SetActive(true);
+        }
+        else
+        {
+            _machineControlImgYes.SetActive(true);
+            _machineControlImgNo.SetActive(false);
+            _steeringWheel.SetActive(true);
+            _buttonsArrowParent.SetActive(false);
+        }
     }
 
     public void ShowFinishPanel()
@@ -189,6 +210,25 @@ public class UiManager : MonoBehaviour
         LoadInfoGem(i);
     }
 
+    private void MachineControlSetting()
+    {
+        if (Game.instance.SteeringWheel)
+        {
+            _machineControlImgYes.SetActive(true);
+            _machineControlImgNo.SetActive(false);
+            _steeringWheel.SetActive(true);
+            _buttonsArrowParent.SetActive(false);
+            Game.instance.SteeringWheel = false;
+        }
+        else
+        {
+            _machineControlImgYes.SetActive(false);
+            _machineControlImgNo.SetActive(true);
+            _steeringWheel.SetActive(false);
+            _buttonsArrowParent.SetActive(true);
+            Game.instance.SteeringWheel = true;
+        }
+    }
     private void LoadInfoGem(int i)
     {
         foreach (var item in _gemTexts)

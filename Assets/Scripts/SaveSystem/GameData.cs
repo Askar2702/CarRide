@@ -17,6 +17,7 @@ public class GameData
     public int CurrentCar;
     public int Level;
     public int IndexRoad;
+    public bool SteeringWheel;
     public GameData(Game data)
     {
         _seedRoad = data.Seed;
@@ -31,6 +32,7 @@ public class GameData
         CurrentCar = data.CurrentCar;
         Level = data.Level;
         IndexRoad = data.IndexRoad;
+        SteeringWheel = data.SteeringWheel;
     }
 
 

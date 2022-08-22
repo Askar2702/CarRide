@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     private int _currentCar;
     private int _level;
     private int _indexRoad;
+    private bool _steeringWheel;
 
     public int Seed
     {
@@ -167,6 +168,23 @@ public class Game : MonoBehaviour
         }
     }
 
+    public bool SteeringWheel
+    {
+        get
+        {
+            return _steeringWheel;
+        }
+        set
+        {
+            if (_steeringWheel != value)
+            {
+                _steeringWheel = value;
+                SaveData();
+            }
+        }
+    }
+
+
     private void Awake()
     {
         if (!instance) instance = this;
@@ -198,6 +216,7 @@ public class Game : MonoBehaviour
         _currentCar = data.CurrentCar;
         _level = data.Level;
         _indexRoad = data.IndexRoad;
+        _steeringWheel = data.SteeringWheel;
     }
 
     public void SetRoadOffset(Vector2 offset)
