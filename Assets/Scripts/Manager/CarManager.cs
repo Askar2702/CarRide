@@ -16,6 +16,7 @@ public class CarManager : MonoBehaviour
     {
         if (!instance) instance = this;
         CurrentCar = Instantiate(_cars[Game.instance.CurrentCar], _startPos, Quaternion.identity);
+        //CurrentCar = Instantiate(_cars[6], _startPos, Quaternion.identity);
     }
     private void Start()
     {

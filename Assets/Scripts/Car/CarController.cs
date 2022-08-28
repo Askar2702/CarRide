@@ -102,17 +102,17 @@ public class CarController : MonoBehaviour
 
         if (_stateSteeringWheel == StateSteeringWheel.Right)
         {
-            Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 3, -1, 1);
+            Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 5, -1, 1);
         }
         else if (_stateSteeringWheel == StateSteeringWheel.Left)
         {
-            Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 3, -1, 1);
+            Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 5, -1, 1);
         }
         else
         {
             if (Horizontal == 0) return;
-            if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 3, -1, 1);
-            else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 3, -1, 1);
+            if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 5, -1, 1);
+            else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 5, -1, 1);
         }
     }
 

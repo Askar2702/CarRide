@@ -8622,13 +8622,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarController_TurnSide_mFD45E30E09FBEFBF
 		}
 	}
 	{
-		// Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 3, -1, 1);
+		// Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 5, -1, 1);
 		float L_1;
 		L_1 = CarController_get_Horizontal_mC16D574793C14AFEF5647654E406199A3208A1AD_inline(__this, NULL);
 		float L_2;
 		L_2 = Time_get_fixedDeltaTime_mD7107AF06157FC18A50E14E0755CEE137E9A4088(NULL);
 		float L_3;
-		L_3 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_add(L_1, ((float)il2cpp_codegen_multiply(L_2, (3.0f))))), (-1.0f), (1.0f), NULL);
+		L_3 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_add(L_1, ((float)il2cpp_codegen_multiply(L_2, (5.0f))))), (-1.0f), (1.0f), NULL);
 		CarController_set_Horizontal_m83E9B6DCEC686F9AC0570302F4D58FFDF1A9A6DD_inline(__this, L_3, NULL);
 		return;
 	}
@@ -8643,13 +8643,13 @@ IL_0030:
 		}
 	}
 	{
-		// Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 3, -1, 1);
+		// Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 5, -1, 1);
 		float L_5;
 		L_5 = CarController_get_Horizontal_mC16D574793C14AFEF5647654E406199A3208A1AD_inline(__this, NULL);
 		float L_6;
 		L_6 = Time_get_fixedDeltaTime_mD7107AF06157FC18A50E14E0755CEE137E9A4088(NULL);
 		float L_7;
-		L_7 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_subtract(L_5, ((float)il2cpp_codegen_multiply(L_6, (3.0f))))), (-1.0f), (1.0f), NULL);
+		L_7 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_subtract(L_5, ((float)il2cpp_codegen_multiply(L_6, (5.0f))))), (-1.0f), (1.0f), NULL);
 		CarController_set_Horizontal_m83E9B6DCEC686F9AC0570302F4D58FFDF1A9A6DD_inline(__this, L_7, NULL);
 		return;
 	}
@@ -8671,7 +8671,7 @@ IL_0061:
 
 IL_006f:
 	{
-		// if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 3, -1, 1);
+		// if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 5, -1, 1);
 		float L_9;
 		L_9 = CarController_get_Horizontal_mC16D574793C14AFEF5647654E406199A3208A1AD_inline(__this, NULL);
 		if ((!(((float)L_9) < ((float)(0.0f)))))
@@ -8680,26 +8680,26 @@ IL_006f:
 		}
 	}
 	{
-		// if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 3, -1, 1);
+		// if (Horizontal < 0) Horizontal = Mathf.Clamp(Horizontal + Time.fixedDeltaTime * 5, -1, 1);
 		float L_10;
 		L_10 = CarController_get_Horizontal_mC16D574793C14AFEF5647654E406199A3208A1AD_inline(__this, NULL);
 		float L_11;
 		L_11 = Time_get_fixedDeltaTime_mD7107AF06157FC18A50E14E0755CEE137E9A4088(NULL);
 		float L_12;
-		L_12 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_add(L_10, ((float)il2cpp_codegen_multiply(L_11, (3.0f))))), (-1.0f), (1.0f), NULL);
+		L_12 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_add(L_10, ((float)il2cpp_codegen_multiply(L_11, (5.0f))))), (-1.0f), (1.0f), NULL);
 		CarController_set_Horizontal_m83E9B6DCEC686F9AC0570302F4D58FFDF1A9A6DD_inline(__this, L_12, NULL);
 		return;
 	}
 
 IL_00a4:
 	{
-		// else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 3, -1, 1);
+		// else Horizontal = Mathf.Clamp(Horizontal - Time.fixedDeltaTime * 5, -1, 1);
 		float L_13;
 		L_13 = CarController_get_Horizontal_mC16D574793C14AFEF5647654E406199A3208A1AD_inline(__this, NULL);
 		float L_14;
 		L_14 = Time_get_fixedDeltaTime_mD7107AF06157FC18A50E14E0755CEE137E9A4088(NULL);
 		float L_15;
-		L_15 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_subtract(L_13, ((float)il2cpp_codegen_multiply(L_14, (3.0f))))), (-1.0f), (1.0f), NULL);
+		L_15 = Mathf_Clamp_m154E404AF275A3B2EC99ECAA3879B4CB9F0606DC_inline(((float)il2cpp_codegen_subtract(L_13, ((float)il2cpp_codegen_multiply(L_14, (5.0f))))), (-1.0f), (1.0f), NULL);
 		CarController_set_Horizontal_m83E9B6DCEC686F9AC0570302F4D58FFDF1A9A6DD_inline(__this, L_15, NULL);
 		// }
 		return;

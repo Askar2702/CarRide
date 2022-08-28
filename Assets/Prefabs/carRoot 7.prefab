@@ -290,7 +290,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!1 &7576874053082451536
 GameObject:
@@ -428,8 +428,6 @@ MonoBehaviour:
   _miniCollisonClip: {fileID: 8300000, guid: a360cf10944b9e9408f6a4474eb42ed4, type: 3}
   _maxPitch: 1.8
   _minPitch: 1
-  _coinSong: {fileID: 8300000, guid: 5348493735905394eb9cda6455b29f1e, type: 3}
-  _gemSong: {fileID: 8300000, guid: bb3eb02371592824d9e617da7c5e0eda, type: 3}
 --- !u!82 &6005401828792644042
 AudioSource:
   m_ObjectHideFlags: 0
@@ -689,12 +687,12 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 1
     m_Stiffness: 1
   m_Enabled: 1
 --- !u!1 &7576874053630939627
@@ -801,7 +799,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!1 &7576874054183582241
 GameObject:
@@ -857,12 +855,12 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 1
     m_Stiffness: 1
   m_Enabled: 1
 --- !u!1001 &1657934137025288244
