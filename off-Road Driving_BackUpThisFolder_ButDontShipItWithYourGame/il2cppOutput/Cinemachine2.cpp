@@ -1899,6 +1899,8 @@ struct Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6_StaticFields
 // UnityEngine.PropertyAttribute
 struct PropertyAttribute_t5E0CB5A6CDA6E24CBD4FF26DE3B0C29D8BB54BF0  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
 {
+	// System.Int32 UnityEngine.PropertyAttribute::<order>k__BackingField
+	int32_t ___U3CorderU3Ek__BackingField_0;
 };
 
 // UnityEngine.Quaternion
@@ -2377,7 +2379,7 @@ struct CinemachineBlendDefinitionPropertyAttribute_tB1CEB886C7C9B87A9A1E42A05EB4
 struct CinemachineEmbeddedAssetPropertyAttribute_t6692FF2870984754FA66135C2A8C2D7F3E3313FE  : public PropertyAttribute_t5E0CB5A6CDA6E24CBD4FF26DE3B0C29D8BB54BF0
 {
 	// System.Boolean Cinemachine.CinemachineEmbeddedAssetPropertyAttribute::WarnIfNull
-	bool ___WarnIfNull_0;
+	bool ___WarnIfNull_1;
 };
 
 // Cinemachine.CinemachineImpulseDefinitionPropertyAttribute
@@ -16564,7 +16566,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CinemachineEmbeddedAssetPropertyAttribut
 		PropertyAttribute__ctor_m19247686E165101F140615C7306DC2DA3953D97D(__this, NULL);
 		// WarnIfNull = warnIfNull;
 		bool L_0 = ___warnIfNull0;
-		__this->___WarnIfNull_0 = L_0;
+		__this->___WarnIfNull_1 = L_0;
 		// }
 		return;
 	}
