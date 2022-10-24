@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioFinish;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private RoadCurveSetting _roadCurveSetting;
+    [SerializeField] private InterstitialAds _interstitialAds;
     private void Awake()
     {
         if (!instance) instance = this;
@@ -46,18 +47,18 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void PauseGame()
-    {
-        if (GameState == GameState.Stop) GameState = GameState.Play;
-        else GameState = GameState.Stop;
-    }
+
+
     private void ButtonAction(ButtonState buttonState)
     {
         if (buttonState == ButtonState.Start) SetstateGame(GameState.Play);
         else if (buttonState == ButtonState.Restart) Lose();
-        else if (buttonState == ButtonState.Next) SceneManager.LoadScene("LoadScene");
+        else if (buttonState == ButtonState.Next)
+        {
+            _interstitialAds.ShowAds();
+            SceneManager.LoadScene("LoadScene");
+        }
         else if (buttonState == ButtonState.Exit) Application.Quit();
-        else if (buttonState == ButtonState.Pause) PauseGame();
     }
 
     private void SetstateGame(GameState gameState)

@@ -158,7 +158,6 @@ public class UiManager : MonoBehaviour
         LoadInfoGem(Game.instance.CountGem);
         if (Game.instance.Level >= MAXLEVEL) Game.instance.Level = 0;
         _levelLabel.text = $"{Game.instance.Level + 1}";
-        TinySauce.OnGameStarted(_levelLabel.text);
         if (Game.instance.SteeringWheel)
         {
             _machineControlImgYes.SetActive(false);
@@ -178,7 +177,6 @@ public class UiManager : MonoBehaviour
     public void ShowFinishPanel()
     {
         _panelFinish.DOAnchorPos(_centerPos.anchoredPosition, _speed).SetEase(_ease).SetUpdate(true);
-        TinySauce.OnGameFinished(true, CoinAmount, _levelLabel.text);
     }
 
     private void SetPosPanel(RectTransform pos)

@@ -21,13 +21,18 @@ public class Gift : MonoBehaviour
     public async void ShowGift(Sprite car, Sprite carWhite)
     {
         if (Game.instance.CountOpenCar >= Game.instance.maxCarCount) return;
-        _giftCar.sprite = car;
-        _gift.sprite = carWhite;
-        _giftBackground.sprite = carWhite;
-        Game.instance.GiftProgress += 0.25f;
-        await _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, _time).SetEase(Ease.OutBack).AsyncWaitForCompletion();
-        await _gift.DOFillAmount(_gift.fillAmount + 0.25f, 2f).AsyncWaitForCompletion();
-        if (_gift.fillAmount >= 1f)
+        if (_giftCar && _gift)
+        {
+            _giftCar.sprite = car;
+            _gift.sprite = carWhite;
+            _giftBackground.sprite = carWhite;
+
+            Game.instance.GiftProgress += 0.25f;
+            await _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, _time).SetEase(Ease.OutBack).SetLink(_gift.gameObject).AsyncWaitForCompletion();
+        }
+        if (_gift)
+            await _gift.DOFillAmount(_gift.fillAmount + 0.25f, 2f).SetLink(_gift.gameObject).AsyncWaitForCompletion();
+        if (_giftCar && _gift && _gift.fillAmount >= 1f)
         {
             Game.instance.GiftProgress = 0;
             _giftCar.gameObject.SetActive(true);
@@ -38,6 +43,8 @@ public class Gift : MonoBehaviour
             Game.instance.CountOpenCar++;
             await Task.Delay(2000);
         }
-        _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(_startPos, _time);
+        if (_gift)
+            _gift.transform.parent.parent.GetComponent<RectTransform>().DOAnchorPos(_startPos, _time).SetLink(_gift.gameObject);
+
     }
 }

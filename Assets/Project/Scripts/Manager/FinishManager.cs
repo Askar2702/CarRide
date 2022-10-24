@@ -38,7 +38,7 @@ public class FinishManager : MonoBehaviour
         var count = CheckCoins();
         for (int i = 0; i < count; i++)
         {
-            await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _speed).SetEase(_ease).AsyncWaitForCompletion();
+            await _stars[i].DOScale(new Vector3(1f, 1f, 1f), _speed).SetEase(_ease).SetLink(_stars[i].gameObject).AsyncWaitForCompletion();
         }
         if (Game.instance.CountOpenCar < _carImages.Length)
             _gift.ShowGift(_carImages[Game.instance.CountOpenCar], _carWhiteImages[Game.instance.CountOpenCar]);

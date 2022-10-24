@@ -1417,8 +1417,6 @@ struct PrefabControlPlayable_t2E1BA9C531DF2FFAB7B110E5DF15653BCAFAD7C4  : public
 // UnityEngine.PropertyAttribute
 struct PropertyAttribute_t5E0CB5A6CDA6E24CBD4FF26DE3B0C29D8BB54BF0  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
 {
-	// System.Int32 UnityEngine.PropertyAttribute::<order>k__BackingField
-	int32_t ___U3CorderU3Ek__BackingField_0;
 };
 
 // UnityEngine.Quaternion
@@ -1893,7 +1891,7 @@ struct RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B
 struct TimeFieldAttribute_tCB267D7666412F1AFCBDD3748290F7D70DFEBB4C  : public PropertyAttribute_t5E0CB5A6CDA6E24CBD4FF26DE3B0C29D8BB54BF0
 {
 	// UnityEngine.Timeline.TimeFieldAttribute/UseEditMode UnityEngine.Timeline.TimeFieldAttribute::<useEditMode>k__BackingField
-	int32_t ___U3CuseEditModeU3Ek__BackingField_1;
+	int32_t ___U3CuseEditModeU3Ek__BackingField_0;
 };
 
 // UnityEngine.Playables.ScriptPlayable`1<System.Object>
@@ -5996,7 +5994,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t TimeFieldAttribute_get_useEditMode_m0
 {
 	{
 		// public UseEditMode useEditMode { get; }
-		int32_t L_0 = __this->___U3CuseEditModeU3Ek__BackingField_1;
+		int32_t L_0 = __this->___U3CuseEditModeU3Ek__BackingField_0;
 		return L_0;
 	}
 }
@@ -6008,7 +6006,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeFieldAttribute__ctor_m91C16D6CAE5863
 		PropertyAttribute__ctor_m19247686E165101F140615C7306DC2DA3953D97D(__this, NULL);
 		// this.useEditMode = useEditMode;
 		int32_t L_0 = ___useEditMode0;
-		__this->___U3CuseEditModeU3Ek__BackingField_1 = L_0;
+		__this->___U3CuseEditModeU3Ek__BackingField_0 = L_0;
 		// }
 		return;
 	}
